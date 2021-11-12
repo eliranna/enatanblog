@@ -1,4 +1,5 @@
 /* CSS Custom Properties Definitions */
+@import url('https://cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css');
 
 :root {
   --maxWidth-none: "none";
@@ -27,13 +28,16 @@
   --spacing-20: 5rem;
   --spacing-24: 6rem;
   --spacing-32: 8rem;
+
+  --spaceMedium: 32px;
+
   --fontFamily-sans: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --fontFamily-serif: "Merriweather", "Georgia", Cambria, "Times New Roman",
+  --fontFamily-serif: "Computer Modern Serif", "Merriweather", "Georgia", Cambria, "Times New Roman",
     Times, serif;
   --font-body: var(--fontFamily-serif);
-  --font-heading: var(--fontFamily-sans);
+  --font-heading: var(--fontFamily-serif);
   --fontWeight-normal: 400;
   --fontWeight-medium: 500;
   --fontWeight-semibold: 600;
@@ -54,7 +58,7 @@
   --fontSize-5: 2.074rem;
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
-  --color-primary: #005b99;
+  --color-primary: #1a202c;
   --color-text: #2e353f;
   --color-text-light: #4f5969;
   --color-heading: #1a202c;
@@ -73,7 +77,7 @@
 html {
   line-height: var(--lineHeight-normal);
   font-size: var(--fontSize-root);
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -243,7 +247,7 @@ a:focus {
 .global-wrapper {
   margin: var(--spacing-0) auto;
   max-width: var(--maxWidth-wrapper);
-  padding: var(--spacing-10) var(--spacing-5);
+  padding: 64px var(--spacing-5);
 }
 
 .global-wrapper[data-is-root-path="true"] .bio {
@@ -254,22 +258,79 @@ a:focus {
   margin-bottom: var(--spacing-12);
 }
 
+.main {
+
+}
+
 .main-heading {
-  font-size: var(--fontSize-7);
+  font-size: 18px;
+  
+  font-style: italic;
+  font-weight: 300;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-box {
+  margin-bottom: var(--spaceMedium);
+}
+
+.bio-box{
+  max-width: 250px;
+  text-align: center;
+  margin-bottom: var(--spaceMedium);
+}
+
+.credit-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.blog-by{
+  text-transform: uppercase;
+  font-size: 10px;
+  text-align: center;
+  font-style: normal;
+}
+
+.blog-by-name {
+  text-transform: uppercase;
+  font-size: 14px;
+  text-align: center; 
+  font-style: normal; 
+}
+
+.post-item-list {
+  align-self: center;
+  max-width: 500px;
 }
 
 .post-list-item {
   margin-bottom: var(--spacing-8);
   margin-top: var(--spacing-8);
+  align-self: center;
+}
+
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .post-list-item p {
   margin-bottom: var(--spacing-0);
+  text-align: justify;
 }
 
 .post-list-item h2 {
+  margin-top: 10px!important;
   font-size: var(--fontSize-4);
+  font-style: italic;
+  font-weight: 400;
   color: var(--color-primary);
   margin-bottom: var(--spacing-2);
   margin-top: var(--spacing-0);
@@ -299,7 +360,6 @@ a:focus {
   margin-right: var(--spacing-4);
   margin-bottom: var(--spacing-0);
   min-width: 50px;
-  border-radius: 100%;
 }
 
 .blog-post header h1 {

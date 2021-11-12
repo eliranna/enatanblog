@@ -1,7 +1,7 @@
 ---
-title: Hello World2
+title: "Solomonoff's Induction — Part I: Will the Sun Rise Tomorrow?"
 date: "2015-05-01T22:12:03.284Z"
-description: "Hello World"
+description: "The idea that inductive inference can be mathematically formalized is quite profound, and many generations of logicians and philosophers said it couldn't be done. Above all, if obtained, such formulation could be embedded in machines for the purpose of creating true artificial intelligence, such that can reason about the universe as humans do."
 ---
 
 This is my first post on my new fake blog! How exciting!
