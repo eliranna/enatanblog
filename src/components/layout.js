@@ -2,6 +2,8 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
+import logo from "../images/god.png"
+
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
@@ -13,7 +15,7 @@ const Layout = ({ location, title, children }) => {
         <div className="logo-box">
           <Link to="/">
             <img
-              src="/icons/god.png"
+              src={logo}
               width={40}
               quality={95}
               alt="Profile picture"

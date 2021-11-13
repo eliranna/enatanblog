@@ -7,7 +7,7 @@ import Seo from "../components/seo"
 
 
 const subscribe = (email) => {
-  fetch("http://enatan.blog/api/v1/subscribe",
+  fetch("https://enatan.blog/api/v1/subscribe",
   {   method: 'POST',
       headers: {
           'Accept': 'application/json',

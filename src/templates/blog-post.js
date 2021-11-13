@@ -7,6 +7,8 @@ import Seo from "../components/seo"
 
 import "katex/dist/katex.min.css"
 
+import logo from "../images/god.png"
+
 
 
 const BlogPostTemplate = ({ data, location }) => {
@@ -29,7 +31,7 @@ const BlogPostTemplate = ({ data, location }) => {
         <div className="logo-box centered">
           <Link to="/">
             <img
-              src="/icons/god.png"
+              src={logo}
               width={40}
               quality={95}
               alt="Profile picture"
