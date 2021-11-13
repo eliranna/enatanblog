@@ -87,10 +87,6 @@ const BlogIndex = ({ data, location }) => {
           )
         })}
       </ol>
-
-        <input type="text"></input>
-        <button onClick={() => subscribe("dodo@loko.com")}>subscribe</button>
-
     </Layout>
   )
 }
