@@ -5,6 +5,10 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
+import "katex/dist/katex.min.css"
+
+
+
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -22,44 +26,30 @@ const BlogPostTemplate = ({ data, location }) => {
         itemType="http://schema.org/Article"
       >
         <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+        <div className="logo-box centered">
+          <Link to="/">
+            <img
+              src="/icons/god.png"
+              width={40}
+              quality={95}
+              alt="Profile picture"
+            />
+          </Link>
+        </div>
+          <div className="post-headline">
+            <h1 itemProp="headline">{post.frontmatter.title}</h1>
+            <div className="blog-by-name">Eliran Natan</div>
+          </div>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
+          className="article-body"
         />
-        <hr />
-        <footer>
-          <Bio />
+        <footer className="footer">
+          <div className="rights">© 2021 — Eliran Natan</div>
         </footer>
       </article>
-      <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
     </Layout>
   )
 }

@@ -1,5 +1,8 @@
 /* CSS Custom Properties Definitions */
 @import url('https://cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@0;1&family=IM+Fell+English:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
 
 :root {
   --maxWidth-none: "none";
@@ -36,6 +39,8 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --fontFamily-serif: "Computer Modern Serif", "Merriweather", "Georgia", Cambria, "Times New Roman",
     Times, serif;
+  --fontSpacial: "IM Fell DW Pica";
+  --fontSpacialUpper: "Im Fell English SC";
   --font-body: var(--fontFamily-serif);
   --font-heading: var(--fontFamily-serif);
   --fontWeight-normal: 400;
@@ -50,6 +55,7 @@
   --lineHeight-normal: 1.5;
   --lineHeight-relaxed: 1.625;
   /* 1.200 Minor Third Type Scale */
+  --fontSize-tiny: 0.6rem;
   --fontSize-0: 0.833rem;
   --fontSize-1: 1rem;
   --fontSize-2: 1.2rem;
@@ -58,8 +64,8 @@
   --fontSize-5: 2.074rem;
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
-  --color-primary: #1a202c;
-  --color-text: #2e353f;
+  --color-primary: #101010;
+  --color-text: #101010;
   --color-text-light: #4f5969;
   --color-heading: #1a202c;
   --color-heading-black: black;
@@ -167,7 +173,7 @@ p {
   line-height: var(--lineHeight-relaxed);
   --baseline-multiplier: 0.179;
   --x-height-multiplier: 0.35;
-  margin: var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0);
+  margin: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-0);
   padding: var(--spacing-0);
 }
 
@@ -201,14 +207,16 @@ li > ul {
 }
 
 blockquote {
-  color: var(--color-text-light);
-  margin-left: calc(-1 * var(--spacing-6));
-  margin-right: var(--spacing-8);
-  padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6);
-  border-left: var(--spacing-1) solid var(--color-primary);
-  font-size: var(--fontSize-2);
   font-style: italic;
   margin-bottom: var(--spacing-8);
+}
+
+.source {
+}
+
+blockquote p {
+  font-size: var(--fontSize-2)!important;
+  margin-bottom: var(--spacing-3)!important;
 }
 
 blockquote > :last-child {
@@ -258,13 +266,8 @@ a:focus {
   margin-bottom: var(--spacing-12);
 }
 
-.main {
-
-}
-
 .main-heading {
-  font-size: 18px;
-  
+  font-size: 18px;  
   font-style: italic;
   font-weight: 300;
   margin: 0;
@@ -275,13 +278,22 @@ a:focus {
 }
 
 .logo-box {
-  margin-bottom: var(--spaceMedium);
+  margin-bottom: var(--spacing-6);
+  height: 50px;
+}
+
+.centered {
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
 }
 
 .bio-box{
   max-width: 250px;
   text-align: center;
-  margin-bottom: var(--spaceMedium);
+  margin-bottom: var(--spacing-6);
+  font-size: var(--fontSize-1);
 }
 
 .credit-box {
@@ -292,21 +304,25 @@ a:focus {
 
 .blog-by{
   text-transform: uppercase;
-  font-size: 10px;
+  font-size: var(--fontSize-tiny);
   text-align: center;
   font-style: normal;
 }
 
 .blog-by-name {
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: var(--fontSize-0);
   text-align: center; 
   font-style: normal; 
 }
 
+.post-headline {
+  margin-bottom: var(--spacing-16);
+}
+
 .post-item-list {
   align-self: center;
-  max-width: 500px;
+  max-width: 450px;
 }
 
 .post-list-item {
@@ -326,14 +342,20 @@ a:focus {
   text-align: justify;
 }
 
+.post-details {
+  text-align: left;
+  font-size: var(--fontSize-0);
+}
+
 .post-list-item h2 {
   margin-top: 10px!important;
-  font-size: var(--fontSize-4);
+  font-size: var(--fontSize-3);
   font-style: italic;
   font-weight: 400;
   color: var(--color-primary);
   margin-bottom: var(--spacing-2);
   margin-top: var(--spacing-0);
+  text-align: left;
 }
 
 .post-list-item header {
@@ -363,7 +385,77 @@ a:focus {
 }
 
 .blog-post header h1 {
-  margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
+  margin-top: var(--spacing-8);
+  margin-bottom: var(--spacing-16);
+  margin-left: var(--spacing-20);
+  margin-right: var(--spacing-20);
+  font-style: italic;
+  text-align: center;
+  font-size: var(--fontSize-4);
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+.preface {
+  margin: 0px 80px;
+  text-align: justify;
+  margin-bottom: var(--spacing-16);
+  font-style: italic;
+}
+
+.rights {
+  font-size: var(--fontSize-0);
+  text-align: center;
+}
+
+.footer {
+  padding-top: var(--spacing-32);
+}
+
+.article-body p {
+  text-indent: 20px;
+  font-size: var(--fontSize-1);
+  text-align: justify;
+  -webkit-hyphens: auto;
+  -webkit-hyphenate-limit-before: 3;
+  -webkit-hyphenate-limit-after: 3;
+  -webkit-hyphenate-limit-chars: 6 3 3;
+  -webkit-hyphenate-limit-lines: 2;
+  -webkit-hyphenate-limit-last: always;
+  -webkit-hyphenate-limit-zone: 8%;
+  -moz-hyphens: auto;
+  -moz-hyphenate-limit-chars: 6 3 3;
+  -moz-hyphenate-limit-lines: 2;
+  -moz-hyphenate-limit-last: always;
+  -moz-hyphenate-limit-zone: 8%;
+  -ms-hyphens: auto;
+  -ms-hyphenate-limit-chars: 6 3 3;
+  -ms-hyphenate-limit-lines: 2;
+  -ms-hyphenate-limit-last: always;
+  -ms-hyphenate-limit-zone: 8%;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  hyphenate-limit-lines: 2;
+  hyphenate-limit-last: always;
+  hyphenate-limit-zone: 8%;
+}
+
+.article-body p:first-of-type {
+  text-indent: 0px;
+}
+
+.article-body p:first-of-type:first-letter {
+  float: left;
+  font-size: 44px;
+  line-height: 1.2;
+  margin-right: 11px;
+}
+
+blockquote p:first-of-type:first-letter {
+  font-size: unset!important;
+  float: unset!important;
+  line-height: unset!important;
+  margin-right: unset!important; 
 }
 
 .blog-post header p {
@@ -391,3 +483,7 @@ a:focus {
     list-style-position: inside;
   }
 }
+
+.katex { 
+  font-size: var(--fontSize-1) !important; 
+} 

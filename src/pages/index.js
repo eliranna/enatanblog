@@ -5,6 +5,33 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
+
+const subscribe = (email) => {
+  fetch("http://enatan.blog/api/v1/subscribe",
+  {   method: 'POST',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({email})
+  }).then(function(res){ 
+    if (res.ok) {
+        return res.json();
+    } else {
+      console.log('failed')
+    }}, () => {
+}, () => {
+})
+.then(function(succuess){ 
+    if(succuess) {
+      console.log('good')
+    } else {
+      console.log('failed')
+    }}).catch(() => {
+      console.log('failed')
+    })
+}
+
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
@@ -39,7 +66,7 @@ const BlogIndex = ({ data, location }) => {
                 itemType="http://schema.org/Article"
               >
                 <header>
-                  <small>{post.frontmatter.date}</small>
+                  <div className="post-details">{post.frontmatter.date}</div>
                   <h2>
                     <Link to={post.fields.slug} itemProp="url">
                       <span itemProp="headline">{title}</span>
@@ -60,6 +87,10 @@ const BlogIndex = ({ data, location }) => {
           )
         })}
       </ol>
+
+        <input type="text"></input>
+        <button onClick={() => subscribe("dodo@loko.com")}>subscribe</button>
+
     </Layout>
   )
 }

@@ -12,9 +12,9 @@ const Layout = ({ location, title, children }) => {
       <div className="main-heading">
         <div className="logo-box">
           <Link to="/">
-            <StaticImage
-              src="../images/god.png"
-              width={45}
+            <img
+              src="/icons/god.png"
+              width={40}
               quality={95}
               alt="Profile picture"
             />
@@ -34,7 +34,7 @@ const Layout = ({ location, title, children }) => {
       </div>
     )
   } else {
-    header = (
+    header = false && (
       <Link className="header-link-home" to="/">
         {title}
       </Link>
