@@ -23,12 +23,12 @@ const BlogPostTemplate = ({ data, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <article
-        className="blog-post"
+        className={`${post.frontmatter.type == "article" ? "blog-post": "tutorial"}`}
         itemScope
         itemType="http://schema.org/Article"
       >
         <header>
-        <div className="logo-box centered">
+        <div className='logo-box'>
           <Link to="/">
             <img
               src={logo}
@@ -40,7 +40,7 @@ const BlogPostTemplate = ({ data, location }) => {
         </div>
           <div className="post-headline">
             <h1 itemProp="headline">{post.frontmatter.title}</h1>
-            <div className="blog-by-name">Eliran Natan</div>
+            {post.frontmatter.type == "article" && <div className="blog-by-name">Eliran Natan</div>}
           </div>
         </header>
         <section
@@ -74,6 +74,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       html
       frontmatter {
+        type
         title
         date(formatString: "MMMM DD, YYYY")
         description

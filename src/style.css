@@ -32,15 +32,11 @@
   --spacing-24: 6rem;
   --spacing-32: 8rem;
 
-  --spaceMedium: 32px;
-
   --fontFamily-sans: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --fontFamily-serif: "Computer Modern Serif", "Merriweather", "Georgia", Cambria, "Times New Roman",
     Times, serif;
-  --fontSpacial: "IM Fell DW Pica";
-  --fontSpacialUpper: "Im Fell English SC";
   --font-body: var(--fontFamily-serif);
   --font-heading: var(--fontFamily-serif);
   --fontWeight-normal: 400;
@@ -207,14 +203,16 @@ li > ul {
 }
 
 blockquote {
-  font-style: italic;
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--spacing-10)!important;
+  margin-top: var(--spacing-10)!important;
 }
 
 .source {
+  text-align: right;
 }
 
 blockquote p {
+  font-style: italic;
   font-size: var(--fontSize-2)!important;
   margin-bottom: var(--spacing-3)!important;
 }
@@ -280,6 +278,10 @@ a:focus {
 .logo-box {
   margin-bottom: var(--spacing-6);
   height: 50px;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
 }
 
 .centered {
@@ -318,7 +320,26 @@ a:focus {
 
 .post-headline {
   margin-bottom: var(--spacing-16);
+  text-align: left; 
+  font-style: normal;
 }
+
+.post-headline-blog h1 {
+  font-style: normal!important;
+  text-align: left!important;
+  margin-left: 0px!important;
+  margin-right: 0px!important;
+}
+
+.post-headline .centered {
+  text-align: center; 
+}
+
+.post-headline .italic {
+  font-style: italic;
+}
+
+
 
 .post-item-list {
   align-self: center;
@@ -401,6 +422,7 @@ a:focus {
   text-align: justify;
   margin-bottom: var(--spacing-16);
   font-style: italic;
+  font-size: var(--fontSize-1)!important;
 }
 
 .rights {
@@ -414,7 +436,7 @@ a:focus {
 
 .article-body p {
   text-indent: 20px;
-  font-size: var(--fontSize-1);
+  font-size: var(--fontSize-2);
   text-align: justify;
   -webkit-hyphens: auto;
   -webkit-hyphenate-limit-before: 3;
@@ -438,6 +460,11 @@ a:focus {
   hyphenate-limit-lines: 2;
   hyphenate-limit-last: always;
   hyphenate-limit-zone: 8%;
+}
+
+.article-body h1,h2,h3,h4,h5,h6 {
+  text-align: center;
+  font-style: italic;
 }
 
 .article-body p:first-of-type {
@@ -471,6 +498,62 @@ blockquote p:first-of-type:first-letter {
   margin-bottom: var(--spacing-8);
 }
 
+.tutorial {
+  font-family: var(--fontFamily-serif);
+}
+
+.tutorial header .logo-box {
+  justify-content: flex-start;
+}
+
+.tutorial header h1 {
+  font-size: var(--fontSize-4);
+}
+
+.tutorial .preface {
+  margin: 0px;
+  margin-bottom: var(--spacing-6);
+  text-align: left;
+}
+
+.tutorial .article-body p {
+  margin-bottom: var(--spacing-6);
+  text-align: left;
+  text-indent: 0px;
+}
+
+.tutorial .article-body p:first-of-type:first-letter {
+  font-size: unset!important;
+  float: unset!important;
+  line-height: unset!important;
+  margin-right: unset!important; 
+}
+
+.katex-display {
+  margin-top: var(--spacing-10)!important; 
+  margin-bottom: var(--spacing-10)!important; 
+}
+
+.algo {
+  display: flex;
+  flex-direction: column;    
+  margin: 80px 0px;
+  border-left: 3px solid black;
+  padding-left: 40px;
+  overflow: scroll;
+}
+
+.algo-title {
+  font-weight: 600;
+}
+
+.algo-body{
+  display: flex;
+  flex-direction: column; 
+  margin-top: 35px;
+  line-height: 37px; 
+}
+
 /* Media queries */
 
 @media (max-width: 42rem) {
@@ -484,6 +567,4 @@ blockquote p:first-of-type:first-letter {
   }
 }
 
-.katex { 
-  font-size: var(--fontSize-1) !important; 
-} 
+
