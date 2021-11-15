@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Eliran Natan's Blog`,
     author: {
       name: `Eliran Natan`,
       summary: ``,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `Notes on artificial intelligence and the nature of the mind`,
+    siteUrl: `https://enatan.blog/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `enatan`,
     },
   },
   plugins: [
