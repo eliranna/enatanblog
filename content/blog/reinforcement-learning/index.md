@@ -3,7 +3,8 @@ public: true
 type: article
 title: "On Machines that Learn through Experience"
 date: "2021-04-21T22:40:32.169Z"
-description: Trial and error is considered to be the key idea behind the design of artificial intelligence systems, as it reveals how systems can obtain complex knowledge without having to analytically understand the problem involved. It is a systematic mechanical method for decision-making that converges to optimality, with an accuracy level that increases as more trials are performed.
+description: Reinforcement Learning is a concept from psychology that can be embedded in machines to derive intelligent decision-making. A fundamental question is how should the machine adapt its behavior as a result of its experience, in the purpose of maximizing the cumulative reward.
+
 
 ---
 

@@ -186,7 +186,7 @@ ol {
 ul li,
 ol li {
   padding-left: var(--spacing-0);
-  margin-bottom: calc(var(--spacing-8) / 2);
+  margin-bottom: calc(var(--spacing-16) / 2);
 }
 
 li > p {
@@ -378,6 +378,7 @@ a:focus {
   margin-top: var(--spacing-0);
   text-align: left;
   line-height: 1.5;
+  
 }
 
 .post-list-item header {
@@ -463,9 +464,15 @@ a:focus {
   hyphenate-limit-zone: 8%;
 }
 
-.article-body h1,h2,h3,h4,h5,h6 {
+.article-body h5 {
   text-align: center;
-  font-style: italic;
+  margin-top: var(--spacing-20);
+  margin-bottom: var(--spacing-16);
+  text-transform: uppercase;
+}
+
+.article-body h5 {
+  font-size: var(--fontSize-1);
 }
 
 .article-body p:first-of-type {
@@ -473,10 +480,12 @@ a:focus {
 }
 
 .article-body p:first-of-type:first-letter {
+  font-size: 49px;
+  line-height: 45px;
   float: left;
-  font-size: 44px;
-  line-height: 1.2;
-  margin-right: 11px;
+  padding-right: 0.2em;
+  padding-top: 6px;
+  margin-bottom: -10px;
 }
 
 blockquote p:first-of-type:first-letter {
@@ -484,6 +493,9 @@ blockquote p:first-of-type:first-letter {
   float: unset!important;
   line-height: unset!important;
   margin-right: unset!important; 
+  padding-right: unset!important; 
+  margin-bottom: unset!important; 
+  padding-top:unset!important; 
 }
 
 .blog-post header p {
