@@ -28,16 +28,6 @@ const BlogPostTemplate = ({ data, location }) => {
         itemType="http://schema.org/Article"
       >
         <header>
-        <div className='logo-box'>
-          <Link to="/">
-            <img
-              src={logo}
-              width={40}
-              quality={95}
-              alt="Profile picture"
-            />
-          </Link>
-        </div>
           <div className="post-headline">
             <h1 itemProp="headline">{post.frontmatter.title}</h1>
             {post.frontmatter.type == "article" && <div className="blog-by-name">Eliran Natan</div>}

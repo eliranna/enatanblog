@@ -209,6 +209,8 @@ blockquote {
 
 .source {
   text-align: right;
+  text-transform: uppercase;
+  font-size: var(--fontSize-0);
 }
 
 blockquote p {
@@ -519,6 +521,10 @@ blockquote p:first-of-type:first-letter {
   justify-content: flex-start;
 }
 
+.spacer {
+  height: var(--spacing-8);
+}
+
 .tutorial header h1 {
   font-size: var(--fontSize-4);
 }
@@ -568,17 +574,53 @@ blockquote p:first-of-type:first-letter {
   line-height: 37px; 
 }
 
+.math-display {
+  overflow: scroll;
+}
+
 /* Media queries */
 
 @media (max-width: 42rem) {
   blockquote {
-    padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
+    padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-0);
+    margin: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4);
     margin-left: var(--spacing-0);
   }
+  blockquote p {
+    text-align: center!important;
+    margin-bottom: var(--spacing-6)!important;
+  }
+  blockquote .source {
+    text-align: center!important;
+  }
+
   ul,
   ol {
     list-style-position: inside;
   }
+  .global-wrapper {
+    padding: var(--spacing-8);
+  }
+  .global-header {
+    margin-bottom: var(--spacing-8);
+  }
+  .logo-box {
+    margin-bottom: 0px;
+  }
+  .post-headline h1 {
+    margin-bottom: var(--spacing-8)!important;
+  }
+  .blog-post header h1 {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .preface {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
+
 
 
