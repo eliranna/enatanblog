@@ -56,6 +56,7 @@ const BlogIndex = ({ data, location }) => {
    
       <ol style={{ listStyle: `none` }} className="posts-list">
         {posts.map(post => {
+          if (!post.frontmatter.public) {return}
           const title = post.frontmatter.title || post.fields.slug
 
           return (
@@ -107,6 +108,7 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
+          public
           date(formatString: "MMMM DD, YYYY")
           title
           description

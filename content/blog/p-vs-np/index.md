@@ -1,7 +1,8 @@
 ---
+public: true
 type: article
 title: "P vs. NP — What is the Difference Between Solving a Problem and Recognizing its Solution?"
-date: "2015-05-28T22:40:32.169Z"
+date: "2020-09-28T22:40:32.169Z"
 description: Some mathematical problems remain indifferent towards technological advancement, as even for the most powerful computers, solving them takes more time then a human lifetime, even if the problem is within a reasonable scale. These problems seem to share a common difficulty that is at the heart of the P versus NP enigma — What is feasible, and what is effectively impossible?
 
 ---

@@ -1,7 +1,8 @@
 ---
+public: true
 type: article
 title: "On Machines that Learn through Experience"
-date: "2015-05-28T22:40:32.169Z"
+date: "2021-04-21T22:40:32.169Z"
 description: Trial and error is considered to be the key idea behind the design of artificial intelligence systems, as it reveals how systems can obtain complex knowledge without having to analytically understand the problem involved. It is a systematic mechanical method for decision-making that converges to optimality, with an accuracy level that increases as more trials are performed.
 
 ---

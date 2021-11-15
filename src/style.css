@@ -377,6 +377,7 @@ a:focus {
   margin-bottom: var(--spacing-2);
   margin-top: var(--spacing-0);
   text-align: left;
+  line-height: 1.5;
 }
 
 .post-list-item header {
@@ -436,7 +437,7 @@ a:focus {
 
 .article-body p {
   text-indent: 20px;
-  font-size: var(--fontSize-2);
+  font-size: var(--fontSize-1);
   text-align: justify;
   -webkit-hyphens: auto;
   -webkit-hyphenate-limit-before: 3;
@@ -532,6 +533,7 @@ blockquote p:first-of-type:first-letter {
 .katex-display {
   margin-top: var(--spacing-10)!important; 
   margin-bottom: var(--spacing-10)!important; 
+  font-size: 15px;
 }
 
 .algo {

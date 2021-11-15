@@ -1,4 +1,5 @@
 ---
+public: false
 type: article
 title: "Solomonoff's Induction — Part I: Will the Sun Rise Tomorrow?"
 date: "2015-05-28T22:40:32.169Z"
