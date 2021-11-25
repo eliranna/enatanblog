@@ -51,8 +51,28 @@ const BlogIndex = ({ data, location }) => {
   }
 
   return (
+
+    <div style={{textAlign:"center", paddingTop:"400px"}}>
+      This site is going through major changes. See you next time :) 
+    </div>
+
+    /*
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
+
+      {false && 
+      <div className="nav-panel">
+        <div>
+          Articles
+        </div>
+        <div>
+          •
+        </div>
+        <div>
+          Notes
+        </div>
+      </div>}
+
    
       <ol style={{ listStyle: `none` }} className="posts-list">
         {posts.map(post => {
@@ -89,6 +109,7 @@ const BlogIndex = ({ data, location }) => {
         })}
       </ol>
     </Layout>
+    */
   )
 }
 

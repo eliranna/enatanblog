@@ -7,8 +7,11 @@ description: Some mathematical problems remain indifferent towards technological
 
 ---
 
-<div class="preface">
-From the dawn of history, Humans have been a problem-solver species. From early agriculture to space exploration, solving mathematical problems seems to be a critical factor in human survival. Since the ’70s, some computational problems that once were tedious to solve have become solvable in a split of a second, mainly due to the exponential growth in processing power. However, some unique problems remain indifferent towards technological advancement, as even for the most powerful computers, solving them takes more time then a human lifetime, even if the problem is within a reasonable scale. In fact, modern encryption relies on the fact that it’s effectively impossible to factor the product of large primes. These problems seem to share a common difficulty that is at the heart of the P versus NP enigma — What is feasible, and what is effectively impossible?
+*From the dawn of history, Humans have been a problem-solver species. From early agriculture to space exploration, solving mathematical problems seems to be a critical factor in human survival. Since the ’70s, some computational problems that once were tedious to solve have become solvable in a split of a second, mainly due to the exponential growth in processing power. However, some unique problems remain indifferent towards technological advancement, as even for the most powerful computers, solving them takes more time then a human lifetime, even if the problem is within a reasonable scale. In fact, modern encryption relies on the fact that it’s effectively impossible to factor the product of large primes. These problems seem to share a common difficulty that is at the heart of the P versus NP enigma — What is feasible, and what is effectively impossible?*
+
+![](https://i.pinimg.com/originals/67/41/51/67415141d766f9171cae7b13186b83e7.jpg)
+<div class="image-desc">
+    NASA engineers pose with astrodynamics equations, J. R. Eyerman for Life Magazine
 </div>
 
 In 1859, the Irish mathematician William Hamilton illustrated a mathematical game which is called Icosian. This game was played on a wooden dodecahedron surface, which consists of 20 corners (vertices). Each of these corners was labeled with the name of a city. The game’s objective was to find a cycle that visits every vertex exactly once and then returns to the starting point. This kind of path is called a Hamiltonian cycle. This simple game gave birth to a significant problem in Graph Theory named The Hamiltonian Cycle Decision Problem — Given an arbitrary graph,how can we know whether it contains a Hamiltonian cycle?
@@ -52,6 +55,11 @@ Consider the well-known <I>Pythagorean theorem</I> as an example, which states t
 
 This relation between mathematical theorems to decision problems allows us to generalize the discussion regarding P versus NP — If a proof’s correctness can be verified in polynomial-time, then the corresponding decision problem is in NP (since the proof is a proposed solution for that decision problem). In a world where P equals NP, such a decision problem is in P, meaning that it can be solved in polynomial-time. Solving such a decision problem is essentially finding proof for theorem T. This could imply, to some extent, that proving a mathematical theorem is not significantly harder then inspecting the correctness of a given proof.
 
+![](https://miro.medium.com/max/1000/1*4za4O9y67l-X2UUvO-0mGg.jpeg)
+<div class="image-desc">
+    Pythagoras of Crotana, J. Augustus Knapp
+</div>
+
 The last conclusion is truly remarkable considering that every mathematical proof can be formalized into a series of well-defined logical statements, which could be processed by a computer program to verify that proof automatically. Hence, P equals NP would mean that proving mathematical theorems can be done by a simple computer program.
 
 >“P equals NP would transform mathematics by allowing a computer to find a formal proof of any theorem which has a proof of a reasonable length, since formal proofs can easily be recognized in polynomial time.”
@@ -60,7 +68,6 @@ The last conclusion is truly remarkable considering that every mathematical proo
 One psychological reason people feel that P=NP is unlikely is that tasks as prooving mathematical theorems often require a degree of creativity, which we do not expect a simple computer program to have.
 
 >“We admire Wiles’ proof of Fermat’s Last Theorem, the scientific theories of Newton, Einstein, Darwin, Watson and Crick, the design of the Golden Gate bridge and the Pyramids, and sometimes even Hercule Poirot’s and Miss Marple’s analysis of a murder, precisely because they seem to require a leap which cannot be made by everyone, let alone by a simple mechanical device”
-
 ><div class="source">— Avi Wigderson</div>
 
 The above point leads us to a discussion about the very nature of the human brain. While science is extremely far from understanding the brain’s mechanism, the laws of physics govern its behavior. As such, and like every other natural process, the brain is an efficient computational device. Hence, any solution to any problem that has been recognized by the brain, has been, by definition, recognized efficiently. Therefore, P equals NP may imply that the brain is capable of solving those problems with the same efficiency.

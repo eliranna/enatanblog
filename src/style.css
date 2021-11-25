@@ -15,7 +15,7 @@
   --maxWidth-3xl: 48rem;
   --maxWidth-4xl: 56rem;
   --maxWidth-full: "100%";
-  --maxWidth-wrapper: var(--maxWidth-2xl);
+  --maxWidth-wrapper: var(--maxWidth-xl);
   --spacing-px: "1px";
   --spacing-0: 0;
   --spacing-1: 0.25rem;
@@ -45,7 +45,7 @@
   --fontWeight-bold: 700;
   --fontWeight-extrabold: 800;
   --fontWeight-black: 900;
-  --fontSize-root: 16px;
+  --fontSize-root: 18px;
   --lineHeight-none: 1;
   --lineHeight-tight: 1.1;
   --lineHeight-normal: 1.5;
@@ -60,6 +60,7 @@
   --fontSize-5: 2.074rem;
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
+
   --color-primary: #101010;
   --color-text: #101010;
   --color-text-light: #4f5969;
@@ -211,12 +212,15 @@ blockquote {
   text-align: right;
   text-transform: uppercase;
   font-size: var(--fontSize-0);
+  margin-left: 20px;
+  margin-top: 20px;
 }
 
 blockquote p {
   font-style: italic;
   font-size: var(--fontSize-2)!important;
   margin-bottom: var(--spacing-3)!important;
+  text-align: left!important;
 }
 
 blockquote > :last-child {
@@ -263,7 +267,12 @@ a:focus {
 }
 
 .global-header {
-  margin-bottom: var(--spacing-12);
+  margin-bottom: var(--spacing-10);
+}
+
+.article-body .preface {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .main-heading {
@@ -297,7 +306,7 @@ a:focus {
   max-width: 250px;
   text-align: center;
   margin-bottom: var(--spacing-6);
-  font-size: var(--fontSize-1);
+  font-size: 16px;
 }
 
 .credit-box {
@@ -308,14 +317,14 @@ a:focus {
 
 .blog-by{
   text-transform: uppercase;
-  font-size: var(--fontSize-tiny);
+  font-size: 9.5px;
   text-align: center;
   font-style: normal;
 }
 
 .blog-by-name {
   text-transform: uppercase;
-  font-size: var(--fontSize-0);
+  font-size: 13.328px;
   text-align: center; 
   font-style: normal; 
 }
@@ -329,8 +338,6 @@ a:focus {
 .post-headline-blog h1 {
   font-style: normal!important;
   text-align: left!important;
-  margin-left: 0px!important;
-  margin-right: 0px!important;
 }
 
 .post-headline .centered {
@@ -341,6 +348,19 @@ a:focus {
   font-style: italic;
 }
 
+.nav-panel {
+  display: flex;
+  justify-content: center;
+  padding-right: 15px;
+}
+
+.nav-panel div:first-child {
+  margin-right: 20px;
+}
+
+.nav-panel div:last-child {
+  margin-left: 20px;
+}
 
 
 .post-item-list {
@@ -363,17 +383,18 @@ a:focus {
 .post-list-item p {
   margin-bottom: var(--spacing-0);
   text-align: justify;
+  font-size: 16px;
 }
 
 .post-details {
   text-align: left;
-  font-size: var(--fontSize-0);
+  font-size: 13.328px;
 }
 
 .post-list-item h2 {
   margin-top: 10px!important;
-  font-size: var(--fontSize-3);
   font-style: italic;
+  font-size: 23.04px;
   font-weight: 400;
   color: var(--color-primary);
   margin-bottom: var(--spacing-2);
@@ -412,17 +433,18 @@ a:focus {
 .blog-post header h1 {
   margin-top: var(--spacing-8);
   margin-bottom: var(--spacing-16);
-  margin-left: var(--spacing-20);
-  margin-right: var(--spacing-20);
   font-style: italic;
   text-align: center;
-  font-size: var(--fontSize-4);
+  font-size: var(--fontSize-3);
   font-weight: normal;
   line-height: 1.5;
+  max-width: var(--maxWidth-sm);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .preface {
-  margin: 0px 80px;
+  max-width: var(--maxWidth-md);
   text-align: justify;
   margin-bottom: var(--spacing-16);
   font-style: italic;
@@ -473,21 +495,40 @@ a:focus {
   text-transform: uppercase;
 }
 
+.article-body p img {
+  width: 100%;
+}
+
 .article-body h5 {
   font-size: var(--fontSize-1);
 }
 
-.article-body p:first-of-type {
-  text-indent: 0px;
+.article-body h6 {
+  font-style: italic;
+  text-align: center;
 }
 
-.article-body p:first-of-type:first-letter {
-  font-size: 49px;
-  line-height: 45px;
+.article-body p:first-of-type {
+  max-width: var(--maxWidth-md);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.article-body p:nth-of-type(3){
+  text-indent: 0px!important;
+}
+
+.article-body p:nth-of-type(3):first-letter{
+  font-size: 59px;
+  line-height: 54px;
   float: left;
   padding-right: 0.2em;
   padding-top: 6px;
   margin-bottom: -10px;
+}
+
+blockquote p:first-of-type {
+  text-indent: 0px!important;
 }
 
 blockquote p:first-of-type:first-letter {
@@ -522,11 +563,12 @@ blockquote p:first-of-type:first-letter {
 }
 
 .spacer {
-  height: var(--spacing-8);
+  height: var(--spacing-6);
 }
 
 .tutorial header h1 {
   font-size: var(--fontSize-4);
+  font-style: italic;
 }
 
 .tutorial .preface {
@@ -576,6 +618,24 @@ blockquote p:first-of-type:first-letter {
 
 .math-display {
   overflow: scroll;
+}
+
+.image p {
+  text-indent: 0px;
+}
+
+.photo {
+  margin-left: -20px;
+  margin-top: var(--spacing-16);
+}
+
+.image-desc {
+  text-align: center;
+  font-size: var(--fontSize-0);
+  font-style: italic;
+  margin-bottom: var(--spacing-16);
+  color: gray;
+  padding: 0px var(--spacing-10);
 }
 
 /* Media queries */

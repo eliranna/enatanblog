@@ -35,6 +35,7 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 630,
+              showCaptions: true
             },
           },
           {
@@ -48,6 +49,14 @@ module.exports = {
             options: {
               strict: `ignore`,
             },
+          },
+          {
+            resolve: `gatsby-remark-classes`,
+            options: {
+              classMap: {
+                image: "photo",
+              }
+            }
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
