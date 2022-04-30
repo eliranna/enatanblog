@@ -1,5 +1,5 @@
 ---
-public: true
+public: false
 type: article
 title: Reinforcement Learning — Basic Solution Methods
 date: "2021-06-21T22:40:32.169Z"

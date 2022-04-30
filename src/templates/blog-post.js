@@ -2,12 +2,12 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
-import Layout from "../components/layout"
+import Layout from "../components/layout2"
 import Seo from "../components/seo"
 
 import "katex/dist/katex.min.css"
 
-import logo from "../images/god.png"
+import logo from "../images/me.png"
 
 
 
@@ -27,10 +27,31 @@ const BlogPostTemplate = ({ data, location }) => {
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
+        <header className="post-head">
           <div className="post-headline">
             <h1 itemProp="headline">{post.frontmatter.title}</h1>
-            {post.frontmatter.type == "article" && <div className="blog-by-name">Eliran Natan</div>}
+          </div>
+          <div className="post-owner">
+            <div className="logo-box2">
+              <Link to="/">
+                <img
+                  src={logo}
+                  width={100}
+                  height={100}
+                  quality={95}
+                  style={{borderRadius: "100%", border: "8px solid #FFD479"}}
+                  alt="Profile picture"
+                />
+              </Link>
+            </div> 
+            <div className="post-owner-name">
+              <div className="post-owner-full-name">
+                Eliran Natan
+              </div>
+              <div className="post-owner-role">
+                SW Architect at <mark>#Axonius</mark>
+              </div>              
+            </div>           
           </div>
         </header>
         <section

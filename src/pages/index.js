@@ -1,8 +1,8 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { Link, graphql, navigate } from "gatsby"
 
 import Bio from "../components/bio"
-import Layout from "../components/layout"
+import Layout from "../components/layout2"
 import Seo from "../components/seo"
 
 
@@ -36,6 +36,7 @@ const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
+
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
@@ -51,49 +52,28 @@ const BlogIndex = ({ data, location }) => {
   }
 
   return (
-
-    <div style={{textAlign:"center", paddingTop:"400px"}}>
-      This site is going through major changes. See you next time :) 
-    </div>
-
-    /*
+ 
     <Layout location={location} title={siteTitle}>
-      <Seo title="All posts" />
-
-      {false && 
-      <div className="nav-panel">
-        <div>
-          Articles
-        </div>
-        <div>
-          •
-        </div>
-        <div>
-          Notes
-        </div>
-      </div>}
-
-   
+      <Seo title="All posts" />   
       <ol style={{ listStyle: `none` }} className="posts-list">
         {posts.map(post => {
           if (!post.frontmatter.public) {return}
           const title = post.frontmatter.title || post.fields.slug
 
           return (
-            <li key={post.fields.slug} className="post-item-list">
+            <li key={post.fields.slug} className="post-item-list2">
               <article
-                className="post-list-item"
                 itemScope
                 itemType="http://schema.org/Article"
               >
                 <header>
-                  <div className="post-details">{post.frontmatter.date}</div>
-                  <h2>
+                <div className="post-details2"><div className="post-date-span">⏱️ {post.frontmatter.date}</div></div>
+                  <h2 className="blog-post-title-h2">
                     <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
+                      <span itemProp="headline" className="blog-post-title"><mark>{title}</mark></span>
                     </Link>
                   </h2>
-                  
+                 
                 </header>
                 <section>
                   <p
@@ -101,7 +81,9 @@ const BlogIndex = ({ data, location }) => {
                       __html: post.frontmatter.description || post.excerpt,
                     }}
                     itemProp="description"
+                    className="post-details2-desc"
                   />
+                   
                 </section>
               </article>
             </li>
@@ -109,7 +91,7 @@ const BlogIndex = ({ data, location }) => {
         })}
       </ol>
     </Layout>
-    */
+    
   )
 }
 

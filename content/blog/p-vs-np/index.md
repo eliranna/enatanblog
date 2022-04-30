@@ -1,5 +1,5 @@
 ---
-public: true
+public: false
 type: article
 title: "P vs. NP — What is the Difference Between Solving a Problem and Recognizing its Solution?"
 date: "2020-09-28T22:40:32.169Z"
