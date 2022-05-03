@@ -1,5 +1,5 @@
 ---
-public: true
+public: false
 type: article
 title: "The Age of Hooks: Building Domain-driven Frontends"
 date: "2020-09-28T22:40:32.169Z"
