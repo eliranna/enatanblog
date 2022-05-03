@@ -12,6 +12,7 @@ const goToBlog = () => {
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = (location.pathname === rootPath) || (location.pathname === '/talks')
+  console.log(location)
   let header = isRootPath && (
     <div className="main-heading">
       <div className="logo-box2">
