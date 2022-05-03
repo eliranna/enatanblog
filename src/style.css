@@ -931,6 +931,10 @@ a {
   .footer {
     padding-top: var(--spacing-16);
   }
+  .talk-sticker img {
+    margin-top: var(--spacing-8);
+    width: 100%;
+  }
 }
 
 
