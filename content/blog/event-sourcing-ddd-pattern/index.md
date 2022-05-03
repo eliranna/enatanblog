@@ -8,8 +8,6 @@ description: About Event-sourcing and how to combine it with CQRS to achieve Dom
 
 <i>A fundamental problem with building complex enterprise software is the knowledge gap created between domain experts and developers. As developers usually do not understand the core business concepts, they tend to create their own private language in order to describe business processes, which often results in software models that do not accurately reflect the business model. This is where Domain-driven design (DDD) comes into play, as it enforces a stricter alignment with the domain model. Domain-driven design is closely related to Event Sourcing and CQRS patterns. In this post, we will show how to combine Event Sourcing with CQRS to apply Domain-driven design principles.</i>
 
-<div class="seperator">...</div>
-
 #### CRUD is not the answer
 
 It all starts with one of the most fundamental decisions in software design: How should we represent the state of the system?
