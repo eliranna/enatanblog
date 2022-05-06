@@ -6,7 +6,7 @@ import Layout from "../components/layout2"
 import Seo from "../components/seo"
 
 const subscribe = (email) => {
-    fetch("https://www.enatan.blog/api/v1/subscribe",
+    fetch("https://powerful-ridge-39134.herokuapp.com/api/v1/subscribe",
     {   method: 'POST',
         headers: {
             'Accept': 'application/json',
