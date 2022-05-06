@@ -1,5 +1,5 @@
 ---
-public: true
+public: false
 type: article
 title: "Sharing State Between Micro-Frontends"
 date: "2020-09-28T22:40:32.169Z"

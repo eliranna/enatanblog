@@ -1,5 +1,5 @@
 ---
-public: true
+public: false
 type: article
 title: "The Presentation Domain"
 date: "2021-04-21T22:40:32.169Z"

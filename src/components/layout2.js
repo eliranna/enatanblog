@@ -43,11 +43,12 @@ const Layout = ({ location, title, children }) => {
                     💬 Speaking
                 </div>
             </Link>
+            {false && 
             <Link to="/subscribe" activeClassName="active-emo-menu-item">
                 <div className="emo-menu-item">
                     🛎️ Subscribe
                 </div>
-            </Link>
+            </Link>}
         </div>
 
     </div>

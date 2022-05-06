@@ -6,29 +6,20 @@ import Layout from "../components/layout2"
 import Seo from "../components/seo"
 
 const subscribe = (email) => {
-    fetch("https://express-vercel-five-taupe.vercel.app/subscribe",
-    {   method: 'POST',
+    fetch("https://express-vercel-kpozr2pf5-eliranna.vercel.app/api/subscribe",
+    {   method: 'GET',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({email})
-    }).then(function(res){ 
+    }).then(function(res){
+        console.log(res) 
       if (res.ok) {
           return res.json();
       } else {
         console.log('failed')
-      }}, () => {
-  }, () => {
-  })
-  .then(function(succuess){ 
-      if(succuess) {
-        console.log('good')
-      } else {
-        console.log('failed')
-      }}).catch(() => {
-        console.log('failed')
-      })
+      }})
   }
 
 const Subscribe = ({ data, location }) => {
@@ -41,6 +32,10 @@ const Subscribe = ({ data, location }) => {
         <div className="Subscribe-box">
             <button onClick={()=>subscribe("elsds@com")}></button>           
         </div>
+        <form action="https://express-vercel-five-taupe.vercel.app/subscribe" method="POST">
+            <input name="email" type="text"></input>
+            <button>Send my greetings</button>
+        </form>
     </Layout>
     
   )
