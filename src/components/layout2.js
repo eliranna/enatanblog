@@ -11,8 +11,7 @@ const goToBlog = () => {
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
-  const isRootPath = (location.pathname === rootPath) || (location.pathname === '/talks') || (location.pathname === '/talks/')
-  console.log(location)
+  const isRootPath = (location.pathname === rootPath) || (location.pathname === '/talks') || (location.pathname === '/talks/') || (location.pathname === '/subscribe/') || (location.pathname === '/subscribe')
   let header = isRootPath && (
     <div className="main-heading">
       <div className="logo-box2">
@@ -42,6 +41,11 @@ const Layout = ({ location, title, children }) => {
             <Link to="/talks" activeClassName="active-emo-menu-item">
                 <div className="emo-menu-item">
                     💬 Speaking
+                </div>
+            </Link>
+            <Link to="/subscribe" activeClassName="active-emo-menu-item">
+                <div className="emo-menu-item">
+                    🛎️ Subscribe
                 </div>
             </Link>
         </div>
