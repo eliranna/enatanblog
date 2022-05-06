@@ -6,7 +6,7 @@ import Layout from "../components/layout2"
 import Seo from "../components/seo"
 
 const subscribe = (email) => {
-    fetch("https://powerful-ridge-39134.herokuapp.com/api/v1/subscribe",
+    fetch("https://express-vercel-five-taupe.vercel.app/subscribe",
     {   method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -39,7 +39,7 @@ const Subscribe = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <Seo title="Subscribe" />   
         <div className="Subscribe-box">
-            <button onClick={()=>subscribe('eliran.natan.87@gmail.com')}>subscribe</button>
+            <button onClick={()=>subscribe("elsds@com")}></button>           
         </div>
     </Layout>
     
