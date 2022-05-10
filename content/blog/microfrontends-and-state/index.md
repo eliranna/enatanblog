@@ -1,39 +1,56 @@
 ---
 public: false
 type: article
-title: "Sharing State Between Micro-Frontends"
-date: "2020-09-28T22:40:32.169Z"
-description: 
+title: "Micro-Frontends as Bounded Contexts"
+date: "2022-05-09T22:40:32.169Z"
+description: A Domain-driven Design approach for correctly identifying Microfrontends to gain maximal autonomy for teams.
 ---
 
 <div class="preface">
-Micro frontends architecture is extremely powerful when it comes to splitting large frontend monoliths into smaller, individually deployable blocks, each is owned by an autonomous team and is focused on a business domain. But what about State? We are often told that micro frontends shouldn't share state, as this would make them coupled to each other. However, when it comes to complex UIs, it is not rare to encounter scenarios where state management between micro frontends is necessary. This post is about finding the sweet spot — In which scenarios it is reasonable for micro frontends to share State? and how should micro frontends share State while remaining decoupled from each other? We discuss and compare different solutions, as we reveal a link to Domain-driven Design.
+Micro-frontend architecture is about breaking up frontend monoliths into many smaller, more manageable pieces, for the purpose of increasing the effectiveness and efficiency of teams working on frontend code. One of the main motivations for working with Microfrontends is the level of isolation that Microfrontends have from each other, especially since it can potentially make teams more autonomous. However, not every decomposition of Frontend monolith would necessarily maximize this potential. In this post, I discuss a Domain-driven Design approach for correctly identifying Microfrontends to gain maximal autonomy for teams. 
 </div>
 
-One of the main motivation for Microfrontends architecture is the relative independency of each Microfrontend. This independency can drasticlly simplify the design and implementation of each block, and dramaticly increase the autonomy of each team. However, not any decomposition of a Frontend monolith into Microfrontends would be nessesaraly effective in terms of delivering autonomy. 
+In Agile, development tasks are often derived from user stories. A User Story is a short, simple description of a goal that a user would like to achieve, described from the perspective of the user and in terms of the business. In many systems, resolving a user story often involves the cooperation and coordination of multiply teams, since implementing the story affects different areas of the software which belong to different teams. This phenomenon is highly related to how organizations construct development teams: We usually encounter an arbitrary/artificial division of responsibility between development teams, such as teams owning components, pages, views, classes, or modules. Since this division is not business-oriented in the sense that it is not aligned with how user stories are organized, then it is less likely that the technical tasks that are required to implement a user story would all fall under the responsibility area of a single team.
 
-This brings us into a more general discussion that is not limited to Frontend: How, then, should a monolith software  be decomposed into multiply units in a way that maximizes the level of relative autonomusy of teams? 
+#### Autonomy and Conway's Law
+A straightforward solution to this problem would be to organize teams around business aspects, rather than around technological concerns. This is based on the realization that a complex domain can be decomposed into sub-domains, where each subdomain represents the main business aspect. By splitting the business domain into foreign and complementary sub-domains we can ensure that each user story would specify a certain business goal that belongs to a certain sub-domain. Hence, Assigning each team to own the area of the software that supports a single sub-domain might be a good approach for improving teams' autonomy. 
+However, how it is possible to ensure that the resulting overall software would remain aligned with the team's structure? That is, what ensures that with time, the different areas of the software that are owned by different teams won't become tangled and dependent on each other in a way that would limit the team's autonomy? 
 
-In general, to maximize autonomiusy of teams, we would need that each team would owned a portion of the software, and these softwares have as little as possible touch points. This can be defined more precisly. In Agile, A User Story is a short description that describes a goal that the user would like to achive. This description is from the user prespective and is expressed in terms of the bussiness. 
+The answer to this question is rooted in what is known as Conway's law. Conway's law states that organizations will always tend to mirror their own structure in the software they built. In accordance, the Inverse Conway maneuver recommends evolving team and organizational structure to promote the desired architecture. Hence, following Conway's law, it is reasonable to assume that by organizing teams around business concerns, the resulted software will remain aligned with business concerns as well, and thus, the dichotomy between responsibility areas of different teams will be preserved.
 
-What we want: Given a User Story, all the parts in the system that are effected by solving this story would belong to the responsibility area of a single team. This way, the owning team could implement the feature end-to-end, with little to no communicaiton with other teams, improving agility, developer experience and teams autonomy. Since User Stories express a goal that belongs to some bussiness aspect, then it makes sense to determine responsibiloty areas according to bussiness aspects. Hence, orgenizing our teams in a way that each team ownes the entire software that supports a certin bussiness aspect would deliver better team autonomy. 
+Going back to micro frontends, the above realization implies that assigning teams with micro frontends, where each team handles a certain concern of the business would make the most sustainable approach in terms of team autonomy. This brings up the question of how can we ensure correct identification and distinction between different subdomains? Wrong modeling could result in teams owning overlapping business responsibility areas, which, in turn, would result in software that is not well dividable due to Conway's law. This is where Domain-driven Design can be applied. 
 
-A question that pops up is: How can we be sure that assinging each team with a bussiness aspect would result in such software that preserves the seperation between teams? What ensures us that, with time, team's software wont become tangaled with each other in a way that would break the dichotomy that we were aiming for? 
+#### Identifying Bounded Contexts
 
-The answare to this queston is rooted in what is known as Conways law. Conways law states that organizations will always tend to mirror thier own structure in the software they built. In accordinace, the Inverse Conway maneuver recommends evolving team and organizational structure to promote the desired architecture. Hence, if we assume that our organizaiton and software are bounded to Conways law, then we can assume that by orgenizing teams in aligment with bussiness concerns, the resulted sofwtare will be aligned with bussiness concerns as well, and thus, the dichotomy between responsiblity areas of different teams will be preserved. 
+Strategic Domain-driven Design (Strategic DDD) is a collection of methodologies that concerns the decomposition of a business domain into multiply subdomains, where each subdomain corresponds to a main business concern. The process begins with domain experts identifying the different subdomains which compose the business domain. Once a decomposition has been obtained, domain experts model each subdomain by composing an unambiguous language that aims to capture the natural entities and processes that occur within and from the perspective of that subdomain. This modeling and its resulted software are defined as a Bounded Context. 
 
-Going back to microfrontends, the above realization implies that assinging teams with microfrontends, where each team handle a certin concern of the bussiness would make the most sustanable approch in terms of teams autonomy. This brings up the question of how can we ensure a correct identifion and distingwishion between diffrent bussiness concerns? A wrong modeling could result in teams owning overlapping bussiness responsibility areas, which, in turn would result in software that is not well divideable due to Conways law. This is where Domain-driven Desing (DDD) can being applyed.
+For example, consider a standard e-commerce application that allows users to browse and search for products, drop products into a cart, schedule a delivery, track and manage ongoing deliveries, get online support and edit their profile. This application domain can be decomposed into the following subdomains:
 
-#### Enters Strategic DDD
+- Catalog: Users can browse, search and get information about products. 
+- Orders: Users can select products, schedule a delivery and make payments. 
+- Deliveries: Users can track and manage on-going deliveris, as well as viewing past deliveries. 
+- Support: Users can recive online assistance via a live chat.
+- Profile: Users can create and update thier profile, and adjust user settings. 
 
-Strategic Domain-driven Design (Strategic DDD) is a collection of metodologies for the decomposition of a bussiness domain into multiply subdomains, where each subdomain correspondes to a main bussiness concern, and for matching each such subdomain with the area of the application that implements that subdomain. The process begins with domain experts identifing the different subdomains which composes the bussiness domain. Once such decomposition has been obtained, domain experets model each subdomain by composing an unambigius languge which aims to captures the natural entities and processes that occure within and from the prespective of that subdomain. This modeling and its resulted software is defined as a <i>Bounded Context</i>. 
+#### Benifits 
 
-For example, consider a standart e-commerce application which allows users to browese and search products, dropping these products into a cart, schedulae a delivery, track and manage the delivery, get online support and edit thier profil. This applciation domain can be decomposed into the following subdomains: 
-- Catalog: For browsing and finding products.
-- Delivery: For selecting products, scheduling delivery and making payments. 
-- Shipping: For tracking down, editing or canceling on-going deliveris. 
-- Support: 
 
+
+
+
+
+
+<div class="seperator">
+...
+</div>
 Different bounded contexts can be evolved and implemented independently. That said, bounded contexts are not independent. A system cannot be built out of independent components; the components have to interact with one another to achieve the overarching system goals. The same goes for bounded contexts. Although their implementations can evolve independently, they have to integrate with each other. As a result, there will always be touchpoints between bounded contexts. The process of identifing the relationships between different contexts and defining thier interface is known as <i>Context Mapping</i>. 
 
-Going back again to Microfrontends, by appling strategic DDD on the bussiness domain, it is possible to identify each microfrontend as (the implemeentation of) a bounded context. This implis that the exschange of information between different microfrontends, that is, thier common state, is derived from the relatioships between the respective bounded contexts. 
+Following the above, it appras that the optimal approch for applying Microfrontends architecture in terms of isolation and Autonomy is to applay the Bounded Context pattern to identify an optimal decomposition of the domain model into multiply bounded contexts, where each bounded contexts is associeted with a dedicated Microfrontend. Moreover, using the Context Mapping approch, one could identify and model the interaction between different bounded contexts, and hance, the interaction between microfrontends. 
+
+
+![](https://i.ibb.co/vhG0pc4/ec.png)
+<div class="image-desc">
+    A decomposition of a standard e-commerce bussiness domain into subdomains
+</div>
+
+The Bounded Context pattern can be applied on each of the resulted subdomains. For example, applying this pattern on the Orders subdomain would form an unambigues language 

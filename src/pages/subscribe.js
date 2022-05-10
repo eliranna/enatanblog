@@ -22,6 +22,22 @@ const subscribe = (email) => {
       }})
   }
 
+  const subscribe2 = (email) => {
+    fetch("https://express-vercel-kpozr2pf5-eliranna.vercel.app/api/subscribe",
+    {   method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          }
+    }).then(function(res){
+        console.log(res) 
+      if (res.ok) {
+          return res.json();
+      } else {
+        console.log('failed')
+      }})
+  }
+
 const Subscribe = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
@@ -29,12 +45,10 @@ const Subscribe = ({ data, location }) => {
  
     <Layout location={location} title={siteTitle}>
       <Seo title="Subscribe" />   
-        <div className="Subscribe-box">
-            <button onClick={()=>subscribe("elsds@com")}></button>           
-        </div>
-        <form action="https://express-vercel-five-taupe.vercel.app/subscribe" method="POST">
-            <input name="email" type="text"></input>
-            <button>Send my greetings</button>
+        <form action="https://getform.io/f/75cf1114-4dfd-4bdd-a9a2-d9e114ecb163" method="POST">
+            <input type="text" name="name"/>
+            <input type="email" name="email"/>
+            <button type="submit">Send</button>
         </form>
     </Layout>
     

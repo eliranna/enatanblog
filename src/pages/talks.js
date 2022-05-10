@@ -23,7 +23,7 @@ const Blog = ({ data, location }) => {
       location: "Coimbra, Portugal",
       date: "June 7th, 2022",
       upcoming: true,
-      sticker: "https://scontent.fsdv3-1.fna.fbcdn.net/v/t39.30808-6/279388964_10227649022075197_5515045120749158088_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=730e14&_nc_ohc=n78St9lP_CQAX8qPW6z&_nc_ht=scontent.fsdv3-1.fna&oh=00_AT_hH78juEp-T9LtsIQO23lyaK7NZurIbSgv-spFY1J1nQ&oe=62766F4E"
+      sticker: "https://pbs.twimg.com/media/FSROKFVWYAMUsGw?format=jpg&name=large"
     },
     {
       conf: "Lemon.io",
@@ -31,7 +31,7 @@ const Blog = ({ data, location }) => {
       location: "Online",
       date: "May 5th, 2022",
       upcoming: true,
-      sticker: "https://scontent.fsdv3-1.fna.fbcdn.net/v/t39.30808-6/279317863_10166590351365495_4191961103096105059_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=730e14&_nc_ohc=fPWD-a-AWN0AX9bhrT1&_nc_ht=scontent.fsdv3-1.fna&oh=00_AT9RMxRYSUvwv9jYW9EwjUYshfdYI_aOY5Te1ibDD4n0Cg&oe=62761591"
+      sticker: "https://i.ibb.co/XsqKwFM/278570891-468637261726114-6682745577183760997-n.jpg"
     },
     {
       conf: "ReactSummit",
@@ -92,9 +92,10 @@ const Blog = ({ data, location }) => {
               <div className="talkdet">
                 <span className="talkDate">⏱️ {post.date}</span>
               </div>
-              <div className="talk-sticker">
+              {post.sticker && 
+              (<div className="talk-sticker">
                 <img src={post.sticker}/>
-              </div>
+              </div>)}
             </div>
 
           )
