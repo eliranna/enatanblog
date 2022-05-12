@@ -3,11 +3,11 @@ public: true
 type: article
 title: "Micro-Frontends and Conway's Law"
 date: "2022-05-09T22:40:32.169Z"
-description: A Domain-driven Design approach for correctly identifying Microfrontends to gain maximal autonomy for teams.
+description: As a consequence of Conway's Law, Domain-driven Design should act as the main guideline in identifying Microfrontends.
 ---
 
 <div class="preface">
-Micro-frontend architecture is about breaking up frontend monoliths into smaller, more manageable pieces, for the purpose of increasing the effectiveness and efficiency of teams working on frontend code. One of the main motivations for working with Microfrontends is the level of isolation that Microfrontends have from each other, especially since it can potentially make teams more autonomous. However, not every decomposition of Frontend monolith would necessarily maximize this potential. In this post, I discuss a Domain-driven Design approach for correctly identifying Microfrontends to gain maximal autonomy for teams.
+Micro-frontend architecture is about breaking up frontend monoliths into smaller, more manageable pieces, for the purpose of increasing the effectiveness and efficiency of teams working on frontend code. One of the main motivations for working with Microfrontends is the level of isolation that Microfrontends have from each other, especially since it can potentially make teams more autonomous. However, not every decomposition of Frontend monolith would necessarily maximize this potential. 
 </div>
 
 In Agile, development tasks are often derived from user stories. A User Story is a short, simple description of a goal that a user would like to achieve, described from the perspective of the user and in terms of the business. In many systems, resolving a user story often involves the cooperation and coordination of multiply teams, since implementing the story affects different areas of the software which belong to different teams. This phenomenon is highly related to how organizations construct development teams: We usually encounter an arbitrary/artificial division of responsibility between development teams, such as teams owning components, pages, views, classes, or modules. Since this division is not business-oriented in the sense that it is not aligned with how user stories are organized, then it is less likely that the technical tasks that are required to implement a user story would all fall under the responsibility area of a single team.
