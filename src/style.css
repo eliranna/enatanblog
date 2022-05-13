@@ -721,7 +721,19 @@ a:focus {
 }
 
 .article-body p img {
-  width: 100%;
+  width: 50vw;
+}
+
+.article-image {
+  display: flex;
+  justify-content: center;
+  padding-left: var(--spacing-8);
+  padding-right: var(--spacing-8);
+  margin-bottom: var(--spacing-8);
+}
+
+.article-image img {
+  width: 140%;
 }
 
 .article-body h5 {
