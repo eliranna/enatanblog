@@ -3,7 +3,7 @@ public: true
 type: article
 title: "Micro-Frontends and Conway's Law"
 date: "2022-05-09T22:40:32.169Z"
-description: As a consequence of Conway's Law, Domain-driven Design should act as the main guideline in identifying Microfrontends.
+description: A Domain-driven Design approch for identifying Microfrontends.
 ---
 
 <div class="preface">
