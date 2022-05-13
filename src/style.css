@@ -734,6 +734,7 @@ a:focus {
 
 .article-image img {
   width: 140%;
+  height: auto;
 }
 
 .article-body h5 {
