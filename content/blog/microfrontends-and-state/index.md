@@ -1,5 +1,5 @@
 ---
-public: true
+public: false
 type: article
 title: "Micro-Frontends and Conway's Law"
 date: "2022-05-09T22:40:32.169Z"
