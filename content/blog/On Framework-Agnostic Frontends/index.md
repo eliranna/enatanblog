@@ -1,9 +1,9 @@
 ---
-public: true
+public: false
 type: article
 title: "On Framework-Agnostic Frontends"
 date: "2022-05-28T22:40:32.169Z"
-description: 
+description: Applying a multitier architectural approach to design highly scalable frontend applications.  
 ---
 
 We have seen significant benefits in software architectures that highlight the importance of segregating core logic from infrastructure concerns, especially since it enhances testability, reusability, and general scalability. This is mostly achieved by applying Multitier architectures, such as the Haxagonail architectural pattern, or the Clean architecture, to build scalable backend systems. 

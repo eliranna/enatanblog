@@ -3,7 +3,7 @@ public: true
 type: article
 title: "Event-Sourcing as a DDD Pattern"
 date: "2020-09-28T22:40:32.169Z"
-description: About Event-sourcing and how to combine it with CQRS to achieve Domain-driven design.
+description: About Event-Sourcing as a means to enhance Domain-driven Design and the CQRS architectural pattern that enables this concept.
 ---
 
 <i>

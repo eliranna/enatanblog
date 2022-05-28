@@ -40,10 +40,10 @@ const BlogIndex = ({ data, location }) => {
                 itemType="http://schema.org/Article"
               >
                 <header>
-                <div className="post-details2"><div className="post-date-span">⏱️ {post.frontmatter.date}</div></div>
+                  <div className="post-details2"><div className="post-date-span">🗓️ {post.frontmatter.date}</div></div>
                   <h2 className="blog-post-title-h2">
                     <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline" className="blog-post-title"><mark>{title}</mark></span>
+                      <span itemProp="headline" className="blog-post-title">{title}</span>
                     </Link>
                   </h2>
                  
@@ -51,7 +51,7 @@ const BlogIndex = ({ data, location }) => {
                 <section>
                   <p
                     dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
+                      __html: post.frontmatter.description,
                     }}
                     itemProp="description"
                     className="post-details2-desc"

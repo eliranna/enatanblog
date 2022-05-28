@@ -445,6 +445,7 @@ a:focus {
   -webkit-transition: all 200ms linear;
   -ms-transition: all 200ms linear;
   transition: all 200ms linear;
+  background-color: #fff2cc7e;
 }
 
 .post-item-list2:hover {
@@ -969,6 +970,9 @@ a {
   .talk-sticker img {
     margin-top: var(--spacing-8);
     width: 100%;
+  }
+  .emo-menu {
+    margin-bottom: var(--spacing-8);
   }
 }
 

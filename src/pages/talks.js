@@ -64,12 +64,7 @@ const Blog = ({ data, location }) => {
       <ol style={{ listStyle: `none` }} className="posts-list">
         {posts.map(post => {
           return (
-            <div className="talk">
-              
-              <div className="upcoming-talk">
-                  
-              </div> 
-                          
+            <div className="talk">                          
               <div className="talkloc">
                 <mark className="conf">#{post.conf}</mark> 
               </div>
