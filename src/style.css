@@ -187,7 +187,8 @@ h6 {
 
 .talk-sticker img {
   margin-top: var(--spacing-8);
-  width: 350px;
+  width: 450px;
+  height: 100%;
   border: 8px solid var(--color-marker);
 }
 

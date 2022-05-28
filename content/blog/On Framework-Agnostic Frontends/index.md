@@ -1,8 +1,8 @@
 ---
-public: false
+public: true
 type: article
 title: "On Framework-Agnostic Frontends"
-date: "2020-09-28T22:40:32.169Z"
+date: "2022-05-28T22:40:32.169Z"
 description: 
 ---
 
@@ -72,7 +72,13 @@ export default function useCartViewModel() {
 }
 ```
 
-It is reccommended that all view models could only access the `Model` throgh a set of fuctions which explicidly reflects the `Model` exposed functionality. This set of functions is commonly known as usecases. 
+As seen in the above snippt, it is reccommended that all view models could only access the `Model` throgh a set of fuctions which explicidly reflects the `Model` exposed functionality. This set of functions is commonly known as <mark>usecases</mark>.
+
+#### Usecases
+A use case is a potential scenario in which a system receives an external request, wheather its a query or a command, and responds to it (also known as a system use case). In practice, it’s just a function (a query or a command) that should be pure — deterministic, and without side effects. In DDD, a use case is called a service
+
+A Usecase is a function that are part of the core layer and represents the natural queries and commands that can be applied on presentation logic and data. 
+
 
 #### The Repository Pattern
 Similaraly to UI's, data-sources are another infrastructure concern that should be pluggble in and out the core application. A pattern that matches the layered-architecture approch and is sutable for handling data-sources is the Repository Pattern. Repositories are classes that encapsulate the logic required to access data sources. They centralize common data access functionality, providing better maintainability and decoupling the infrastructure or technology used to access datasources from the core layer.
@@ -86,7 +92,7 @@ From a layered architecutre prespective, the repository acts as an adapter betwe
 When applying the repository pattern, it is importent to notice the inversion of control. The modal uses the Repository for the purpose of setting and retriving data, but importing the repository directly in the model would make the core layer dependent on a component from the adapter layer, which would breake the rule of inwards-pointing dependencies. This can be resolved by applying an inversion of control, usually done by dependency injection. 
 
 ##### Example using React Context
-Another React feature that is effective for implementing the repository pattern is React Context. As repositories are implemented or imported to a c
+Another React feature that is effective for implementing the repository pattern is React Context. Repositories implementations can be imported into a React Context. Then, these repositories become avaliable to any UI component that is within this context. These components can then inject the requieeed repository implementation by passing it down to a the model 
 
 
 
