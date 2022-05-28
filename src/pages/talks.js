@@ -15,7 +15,7 @@ const Blog = ({ data, location }) => {
       location: "Online",
       date: "June 17th, 2022",
       upcoming: true,
-      sticker: "https://pbs.twimg.com/media/FRK99g6XwAAX1VS?format=jpg&name=900x900"
+      sticker: "https://i.ibb.co/Gx1gqPW/reactsummit.png"
     },
     {
       conf: "JNation",
@@ -24,14 +24,6 @@ const Blog = ({ data, location }) => {
       date: "June 7th, 2022",
       upcoming: true,
       sticker: "https://pbs.twimg.com/media/FSROKFVWYAMUsGw?format=jpg&name=large"
-    },
-    {
-      conf: "Lemon.io",
-      title: "Building Domain-driven Frontends",
-      location: "Online",
-      date: "May 5th, 2022",
-      upcoming: true,
-      sticker: "https://i.ibb.co/XsqKwFM/278570891-468637261726114-6682745577183760997-n.jpg"
     },
     {
       conf: "ReactSummit",
@@ -46,12 +38,6 @@ const Blog = ({ data, location }) => {
       location: "Online",
       date: "March 24th, 2021",
       sticker: "https://pbs.twimg.com/media/ExRiXhkW8AEc9JS?format=jpg&name=900x900"
-    },
-    {
-      conf: "Hackages",
-      title: "Domain-Driven Design with CQRS and Event Sourcing",
-      location: "Online",
-      date: "November 26th, 2020"
     }
   ]
 
@@ -75,27 +61,29 @@ const Blog = ({ data, location }) => {
  
     <Layout location={location} title={siteTitle}>
       <Seo title="Talks" />   
-      <ol style={{ listStyle: `none` }} className="posts-list2">
+      <ol style={{ listStyle: `none` }} className="posts-list">
         {posts.map(post => {
           return (
             <div className="talk">
               
               <div className="upcoming-talk">
                   
-              </div>             
+              </div> 
+                          
               <div className="talkloc">
-                <mark className="conf">#{post.conf}</mark> <span className="talkLocation">📍{post.location}</span>
+                <mark className="conf">#{post.conf}</mark> 
               </div>
-              <div className="talkTitle">
+              {false && (<div className="talkTitle">
                 <span>{post.title}</span>
-              </div>
+              </div>)}
               <div className="talkdet">
-                <span className="talkDate">⏱️ {post.date}</span>
+                <span className="talkLocation">📍 {post.location}</span>  &nbsp; <span className="talkDate">⏱️ {post.date}</span>
               </div>
               {post.sticker && 
               (<div className="talk-sticker">
                 <img src={post.sticker}/>
               </div>)}
+
             </div>
 
           )

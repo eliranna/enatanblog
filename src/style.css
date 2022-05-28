@@ -179,9 +179,16 @@ h6 {
   transition: background-color 200ms linear;
 }
 
+.talk-sticker {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .talk-sticker img {
   margin-top: var(--spacing-8);
-  width: 450px;
+  width: 350px;
+  border: 8px solid var(--color-marker);
 }
 
 h1 > a {
@@ -413,7 +420,7 @@ a:focus {
   width: 100%;
   max-width: 500px;
   justify-content: center;
-  margin-bottom: var(--spacing-12);
+  margin-bottom: var(--spacing-16);
 }
 
 .emo-menu-item {
@@ -431,7 +438,7 @@ a:focus {
 }
 
 .post-item-list2 {
-  border: 1px dashed #fce49f;
+  border: 1px dashed var(--color-marker);
   padding: var(--spacing-6);
   margin-top: var(--spacing-8);
   -webkit-transition: all 200ms linear;
@@ -456,12 +463,17 @@ a:focus {
 
 .talkTitle {
   font-family: var(--font-dm);
+  display: flex;
+  justify-content: center;
+  align-self: center;
 }
 
 .talkTitle span {
   font-weight: 600;
   font-family: var(--font-merr);
   font-style: italic;
+  text-align: center;
+  margin-bottom: var(--spacing-3);
 }
 
 .talkTitle mark {
@@ -477,15 +489,18 @@ a:focus {
   font-family: var(--font-dm);
   margin-bottom: var(--spacing-2);
   font-size: 14px;
+  text-align: center;
 }
 
 .talk {
-  border-top: 1px dashed #f9dd8c;
   padding: var(--spacing-6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .talktime {
-  color: gray
+  color: gray;
 }
 
 .upcoming-talk {
@@ -528,6 +543,7 @@ a:focus {
   font-family: var(--font-dm);
   font-size: 14px;
   margin-top: var(--spacing-2);
+  text-align: center;
 }
 
 
@@ -593,10 +609,10 @@ a:focus {
 }
 
 .posts-list2 {
+  border-top: 1px dashed #fce190;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: var(--spacing-8);
   margin-left: 0px !important;
 }
 
@@ -733,7 +749,7 @@ a:focus {
 }
 
 .article-image img {
-  width: 140%;
+  width: 90%;
   height: 100%;
 }
 
