@@ -15,7 +15,7 @@ const Blog = ({ data, location }) => {
       location: "Online",
       date: "June 17th, 2022",
       upcoming: true,
-      sticker: "https://i.ibb.co/Gx1gqPW/reactsummit.png"
+      sticker: "https://i.ibb.co/929rQwr/reactsummit-1.jpg"
     },
     {
       conf: "JNation",

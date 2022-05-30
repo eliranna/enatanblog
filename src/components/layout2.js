@@ -35,7 +35,7 @@ const Layout = ({ location, title, children }) => {
         <div className="emo-menu">
             <Link to="/" activeClassName="active-emo-menu-item">
                 <div className="emo-menu-item">
-                    ✏️ Notes
+                    ✏️ Blog
                 </div>
             </Link>
             <Link to="/talks" activeClassName="active-emo-menu-item">

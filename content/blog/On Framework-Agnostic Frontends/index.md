@@ -43,11 +43,11 @@ function Cart() {
     } = useCartViewModel();
 
     return (
-        <CartList 
+        <ProductsList
             products={products}
             onRemove={removeProduct}
             onDrop={addProduct}>
-        </CartList>                   
+        </ProductsList>                   
     );
   }
   
@@ -62,7 +62,7 @@ export default function useCartViewModel() {
     const [products, setProducts] = useState<Product[]>([])
 
     useEffect(()=> {
-        setProducts(Model.getCartProductsUseCase())
+        setProducts(getCartProductsUseCase.handle())
     })
 
     return {
@@ -72,12 +72,37 @@ export default function useCartViewModel() {
 }
 ```
 
-As seen in the above snippt, it is reccommended that all view models could only access the `Model` throgh a set of fuctions which explicidly reflects the `Model` exposed functionality. This set of functions is commonly known as <mark>usecases</mark>.
+As can be seen in the above example, view models interact with the `Model` via <mark>usecases</mark>. By encapsulting the core layer with usecases interface, any code that is external to the core layer can only interact with it via usecases. 
+it is reccommended that all view models could only access the `Model` throgh a set of fuctions which explicidly reflects the `Model` exposed functionality. This set of functions is commonly known as <mark>usecases</mark>.
 
 #### Usecases
-A use case is a potential scenario in which a system receives an external request, wheather its a query or a command, and responds to it (also known as a system use case). In practice, it’s just a function (a query or a command) that should be pure — deterministic, and without side effects. In DDD, a use case is called a service
+A use case represents a potential request that the core application is expected to handle, wheather its a query or a command. Each such use case is represented by an associated usecase function. It is important that usecase functions are pure, that is, deterministic, never produce side-effects, and never directly interact with code that is external to the core layer. The collection of usecase functions composes the interface of the core layer, and should stricktly be the only communication channel with the core layer. In DDD terminology, usecases are reffered to as services. 
 
-A Usecase is a function that are part of the core layer and represents the natural queries and commands that can be applied on presentation logic and data. 
+```ts
+
+export class AddProductToCartUseCase {
+
+    handle(productId: ProductId) {
+
+        // Retrive core entities
+        const product: Product = this.productRepository.get(productId)
+        const cart: Cart = this.cartRepository.get()
+
+        // Interact between core entities
+        cart.addProduct(product)
+
+        // Persist changes
+        this.cartRepository.save(cart) 
+    }
+
+}
+
+```
+
+The above implementation of a usecase follows a retrive-interact-persist life-cycle. At the retrive step, core entities are retrived from data-sources, mainly throgh the utilization of repositories. 
+
+
+
 
 
 #### The Repository Pattern
@@ -93,6 +118,84 @@ When applying the repository pattern, it is importent to notice the inversion of
 
 ##### Example using React Context
 Another React feature that is effective for implementing the repository pattern is React Context. Repositories implementations can be imported into a React Context. Then, these repositories become avaliable to any UI component that is within this context. These components can then inject the requieeed repository implementation by passing it down to a the model 
+
+```jsx
+import {CartProvider} from './contexts/cart-context'
+import {Cart} from './components/cart'
+
+function App() {
+    return (
+        <CartProvider>
+            <Cart></Cart>
+        </CartProvider>
+    )
+}
+```
+
+The `CartContext` provides access to the cart repository. 
+
+Wrapped by a `CartProvider`, the `Cart` component can now retrive the context from anywhere within its scope, and use it when initilizing the view model:  
+
+```jsx
+import useCartViewModel from './view-models/cart'
+import {CartContext} from './contexts/cart-context'
+
+const {
+
+    products, 
+    removeProduct,
+    addProduct
+
+} = useCartViewModel(useContext(CartContext));
+```
+
+Now, the view model is injected with `CartContext`, it can further inject it into the core application via usecases instansiation: 
+
+```js
+export default function useCartViewModel(CartRepository: ICartRepository) {
+
+    const addProductToCartUseCase = new AddProductToCartUseCase(CartRepository)
+    
+    // Here: Implement the View Model
+
+}
+```
+
+The `ICartRepository` type is defined as part of the core layer, and is utlizied directly by usecases, regardless of the actual implementation of the repository. 
+
+```js
+export class ProductsRepository implements ICartRepository {
+    /*
+        Here: Implement the repository as a translation layer 
+        between the data-source API and the ICartRepository interface.
+    */ 
+}
+```
+
+To match this design, usecases should be desinged as a class that is initiated with a repository implementation, and exposes an execution mathod: 
+
+```js
+export class AddProductToCartUseCase {
+
+    private cartRepository: ICartRepository;
+
+    constructor(cartRepository: ICartRepository) {
+        this.cartRepository = cartRepository;
+    }
+
+    handle(productId: ProductId) {
+        // Here: Implement the use case
+    }
+```
+
+In the above snippt, `handle()` acts as the execution mathod of the `AddProductToCartUseCase` usecase. This allows the usecase to have direct access to the injected repository. 
+
+#### Framework-Agnostic Design
+
+<div class="article-image">
+    <img src="https://i.ibb.co/k6KHD4H/Screen-Shot-2022-05-28-at-23-47-16.png">
+</div>
+
 
 
 
