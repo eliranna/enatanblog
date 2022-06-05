@@ -2,9 +2,6 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { navigate } from 'gatsby'
-
-import logo from "../images/me.png"
-
 const goToBlog = () => {
     navigate('/blog')
 }
@@ -17,7 +14,7 @@ const Layout = ({ location, title, children }) => {
       <div className="logo-box2">
         <Link to="/">
           <img
-            src={"https://scontent.fsdv3-1.fna.fbcdn.net/v/t1.6435-1/118732079_10223558435893099_3741007992127305573_n.jpg?stp=dst-jpg_p480x480&_nc_cat=109&ccb=1-5&_nc_sid=7206a8&_nc_ohc=jsd8q3Yc6HEAX_2UsFi&tn=s-Jpzaq8jx_ZoXCH&_nc_ht=scontent.fsdv3-1.fna&oh=00_AT9Si4cy8izn9PvkLCQpD1NK7tdiXWT2q1FL0MMzwd7rMQ&oe=62986D0A"}
+            src={"https://i.ibb.co/7Yvyd6F/118732079-10223558435893099-3741007992127305573-n.jpg"}
             width={100}
             height={100}
             quality={95}

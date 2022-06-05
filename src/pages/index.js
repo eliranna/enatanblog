@@ -43,7 +43,7 @@ const BlogIndex = ({ data, location }) => {
                   <div className="post-details2"><div className="post-date-span">🗓️ {post.frontmatter.date}</div></div>
                   <h2 className="blog-post-title-h2">
                     <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline" className="blog-post-title">{title}</span>
+                      <span itemProp="headline" className="blog-post-title"><mark>{title}</mark></span>
                     </Link>
                   </h2>
                  

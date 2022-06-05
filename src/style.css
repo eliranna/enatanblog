@@ -439,17 +439,17 @@ a:focus {
 }
 
 .post-item-list2 {
-  border: 1px dashed var(--color-marker);
+  
   padding: var(--spacing-6);
   margin-top: var(--spacing-8);
   -webkit-transition: all 200ms linear;
   -ms-transition: all 200ms linear;
   transition: all 200ms linear;
-  background-color: #fff2cc7e;
+ 
 }
 
 .post-item-list2:hover {
-  border: 1px dashed #f8c93d;
+  
 }
 
 
