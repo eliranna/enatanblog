@@ -1,31 +1,24 @@
 import * as React from "react"
-import { Link, graphql, navigate } from "gatsby"
-
-import Bio from "../components/bio"
-import Layout from "../components/layout2"
+import { Link, graphql } from "gatsby"
+import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
-
+  const posts = data.allMarkdownRemark.nodes 
 
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
         <Seo title="All posts" />
-        <Bio />
         <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
+          No blog posts found.
         </p>
       </Layout>
     )
   }
 
   return (
- 
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />   
       <ol style={{ listStyle: `none` }} className="posts-list">
@@ -34,19 +27,17 @@ const BlogIndex = ({ data, location }) => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (
-            <li key={post.fields.slug} className="post-item-list2">
+            <li key={post.fields.slug} className="post">
               <article
                 itemScope
                 itemType="http://schema.org/Article"
               >
                 <header>
-                  <div className="post-details2"><div className="post-date-span">🗓️ {post.frontmatter.date}</div></div>
-                  <h2 className="blog-post-title-h2">
+                  <h2>
                     <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline" className="blog-post-title"><mark>{title}</mark></span>
+                      <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                 
                 </header>
                 <section>
                   <p
@@ -56,7 +47,6 @@ const BlogIndex = ({ data, location }) => {
                     itemProp="description"
                     className="post-details2-desc"
                   />
-                   
                 </section>
               </article>
             </li>
@@ -64,7 +54,6 @@ const BlogIndex = ({ data, location }) => {
         })}
       </ol>
     </Layout>
-    
   )
 }
 

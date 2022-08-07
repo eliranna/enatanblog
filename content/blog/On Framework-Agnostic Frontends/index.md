@@ -6,30 +6,36 @@ date: "2022-05-28T22:40:32.169Z"
 description: Applying a multitier architectural approach to design highly scalable frontend applications.  
 ---
 
-We have seen significant benefits in software architectures that highlight the importance of segregating core logic from infrastructure concerns, especially since it enhances testability, reusability, and general scalability. This is mostly achieved by applying Multitier architectures, such as the Haxagonail architectural pattern, or the Clean architecture, to build scalable backend systems. 
+<span class="heb">
+על טבעה של הדַּעַת
+</span>
 
-Unlike with the backend, this sort of architectural approach is not very common in frontend development, mainly due to the assumption that presentation logic, which is handled by the frontend, is fundamentally simpler than business logic, which is handled by the backend. This assumption might have been true 10 years ago, but today's reality is different. UI's are no longer just forms and buttons but are applications that provide a game-like experience, as they aim to deliver significant add-value to users, such that cannot be provided by the backend alone and is not derived or expressed by business logic.
+<div class="preface">
+
+
+We have seen significant benefits in software architectures that highlight the importance of segregating core logic from infrastructural concerns, especially since it enhances testability, reusability, and general scalability. This is mostly achieved by applying a multitier architecture, such as Hexagonal architecture, to build scalable systems. Surprisingly or not, this sort of thinking is not widely adopted for Front-end development. Rather, frontend engineers often rely on UI Framework to implicitly yield a design, perhaps due to the common assumption that presentation logic is fundamentally simpler than business logic. However, modern UI's are no longer just forms and buttons. They are complex game-like applications that aim to deliver significant added value to users. This added value naturally invokes complex presentation logic that has to be tackled seriously. Here, we present a framework-agnostic approach for frontend development, such that results in a well-isolated pluggable core application. 
+</div>
 
 #### Thinking in Layers
-Multitier architecture can be applied on Frontend. At its center layes the core layer, which holds the presentation logic at it purest form. Any infrastructure, whether it is a UI or data souce, could be plugged in and out the core. To ensure a full encapsulation of the core app, an adapters (plugins) layer is requiered. An importent property of this design is that dependencies always points inwards, which means that the an inner layer is never dependent or aware of any outher layer. Another segnificant benifits is that since the core app is purly logical, presentation logic can be modeled in a way that would capture the natural entities and processes that composes the UI. This can be achived by appling tctical Domain-driven Design patterns in modeling the core app. 
+A multitier architecture can be applied on Frontend. At its core lies the presentation logic, which models the natural entities and processes that occur within the presentation domain. Any infrastructure, whether it is a UI or data source, is external to the core and can be plugged into the core. To allow this pluggability, a translation layer is required ("adapters"). 
 
 <div class="article-image">
     <img src="https://i.ibb.co/mbQD21D/Screen-Shot-2022-05-27-at-11-38-23.png">
 </div>
 
-#### The MVVM Pattern
-An example for a pattern that matches a layered-architecture style is Model–view–viewmodel (MVVM). The MVVM pattern defines three core components: the model, the view, and the view model. While the view is responsible for defining the structure, layout, and appearance of what the user sees on screen, the view model implements properties and commands to which the view can data bind to, and notifies the view of any state changes through change notification events. The properties and commands that the view model provides define the functionality to be offered by the UI, but the view determines how that functionality is to be displayed. The view model is also responsible for coordinating the view's interactions with any model classes that are required. There's typically a one-to-many relationship between the view model and the model classes.
+The above architectural pattern highlights the importance of the <mark>inward-pointing dependencies rule</mark>, which means that an inner layer is never dependent, or conceptually aware, of any external layer. Specifically, the core layer is never dependent on any architectural concerns. 
 
-From a layered architecutre prespective, the view model acts as an adapter between the view, which belongs to the infrastructure layer, and the model, which belongs to the core layer. 
+#### The MVVM Pattern
+An example of a pattern that matches the above architectural approach is the <mark>Model–view–viewmodel (MVVM)</mark>. The MVVM pattern defines three core components: the model, the view, and the view model. While the view is responsible for defining the structure, layout, and appearance of what the user sees on screen, the view model implements properties and commands to which the view can data bind to, and notifies the view of any state changes through change notification events. The properties and commands that the view model provides define the functionality to be offered by the UI, but the view determines how that functionality is to be displayed. The view model is also responsible for coordinating the view's interactions with any model classes that are required. There's typically a one-to-many relationship between the view model and the model classes.
+
+From a layered architecture perspective, the view model acts as a translation layer between the view, which belongs to the infrastructure layer, and the model, which is part of the core layer.
 
 <div class="article-image">
     <img src="https://i.ibb.co/vkqXxpY/Screen-Shot-2022-05-27-at-12-03-10.png">
 </div>
 
-Following the last years, leading UI frameworks have made significant progress in supporting the construction of Framework-agnostic Frontends. This is mostly highlighetd by React Custom Hooks and by Vue's Composition API, as both allowes to write statefull logic outside of the context of components. 
-
 ##### Example: React Custom Hooks
-With React, a view model can be implemnetd as a Custom React Hook. 
+Leading UI frameworks have made significant progress in supporting the construction of Framework-agnostic Frontends. This is mostly highlighted by <mark>React Custom Hooks</mark> and by Vue's Composition API, as both allow to maintain and execute stateful logic outside of the context of components. With React, a view model can be implemnetd as a Custom React Hook. 
 
 ```ts
 import useCartViewModel from '../view-models/cart'
@@ -54,7 +60,7 @@ function Cart() {
 export default Cart;
 ```
 
-A Custom Hook would use lower-level hooks to maintain state and response to changes. 
+A Custom Hook would use lower-level hooks, such as the `useState` and `useEffect` hooks, to maintain state and respond to changes. 
 
 ```ts
 export default function useCartViewModel() {
@@ -72,11 +78,10 @@ export default function useCartViewModel() {
 }
 ```
 
-As can be seen in the above example, view models interact with the `Model` via <mark>usecases</mark>. By encapsulting the core layer with usecases interface, any code that is external to the core layer can only interact with it via usecases. 
-it is reccommended that all view models could only access the `Model` throgh a set of fuctions which explicidly reflects the `Model` exposed functionality. This set of functions is commonly known as <mark>usecases</mark>.
+To enhance a proper encapsulation of the Model, it is recommended that View-Models could only access the Model through a set of functions that explicitly reflects the Model's public functionality. This set of functions is commonly known as <mark>use cases</mark>.
 
 #### Usecases
-A use case represents a potential request that the core application is expected to handle, wheather its a query or a command. Each such use case is represented by an associated usecase function. It is important that usecase functions are pure, that is, deterministic, never produce side-effects, and never directly interact with code that is external to the core layer. The collection of usecase functions composes the interface of the core layer, and should stricktly be the only communication channel with the core layer. In DDD terminology, usecases are reffered to as services. 
+Use cases represent potential requests that can be sent to the core application, whether this request is a query or a command. Each such use case is represented by an associated `usecase` function. It is important that `usecase` functions are pure, that is, deterministic, never produce side-effects, and never directly interact with code that is external to the core layer. The collection of `usecase` functions composes the interface of the core layer, and should strictly be the only communication channel with the core layer. In DDD terminology, use cases are referred to as services.
 
 ```ts
 
@@ -99,20 +104,20 @@ export class AddProductToCartUseCase {
 
 ```
 
-The above implementation of a usecase follows a retrive-interact-persist life-cycle. At the retrive step, core entities are retrived from data-sources, mainly throgh the utilization of repositories. 
-
-
-
-
+The above implementation of a use case follows a <mark>retrieve-interact-persist</mark> routine. At the retrieval step, core entities are retrieved from data sources, mainly through the utilization of repositories.
 
 #### The Repository Pattern
-Similaraly to UI's, data-sources are another infrastructure concern that should be pluggble in and out the core application. A pattern that matches the layered-architecture approch and is sutable for handling data-sources is the Repository Pattern. Repositories are classes that encapsulate the logic required to access data sources. They centralize common data access functionality, providing better maintainability and decoupling the infrastructure or technology used to access datasources from the core layer.
+Similar to UI’s, data sources are yet another infrastructural concern that should be plugged into the core layer. A pattern that matches the layered-architecture approach and is suitable for handling data sources is the <mark>Repository Pattern</mark>. Repositories are classes that encapsulate the logic required to access data sources. They centralize common data access functionality, providing better maintainability and decoupling the infrastructure or technology used to access data sources from the core layer.
 
-From a layered architecutre prespective, the repository acts as an adapter between the data source, which belongs to the infrastructure layer, and the repository interface, which belongs to the core layer. To plug a data-source, one must write a matching repository that implements the repository interface that is defined in the core app, ensuring that the core layer is completly isolated from infrastructural concerns. 
+From a layered architecutre prespective, the repository acts as an adapter between the data source, which belongs to the infrastructure layer, and the repository interface, which belongs to the core layer. To plug a data source, one must write a matching repository that implements the repository interface that is defined in the core app, ensuring that the core layer is wholly isolated from infrastructural concerns.
 
 <div class="article-image">
     <img src="https://i.ibb.co/sWtcHv0/Screen-Shot-2022-05-27-at-15-55-06.png">
 </div>
+
+To allow the core layer to use model for setting and retriving data, while prserving the inward-pointing dependencies rule, an inversion of control is requiered. 
+
+
 
 When applying the repository pattern, it is importent to notice the inversion of control. The modal uses the Repository for the purpose of setting and retriving data, but importing the repository directly in the model would make the core layer dependent on a component from the adapter layer, which would breake the rule of inwards-pointing dependencies. This can be resolved by applying an inversion of control, usually done by dependency injection. 
 

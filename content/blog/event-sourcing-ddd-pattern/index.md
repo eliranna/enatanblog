@@ -1,5 +1,5 @@
 ---
-public: true
+public: false
 type: article
 title: "Event-Sourcing as a DDD Pattern"
 date: "2020-09-28T22:40:32.169Z"
