@@ -2,10 +2,33 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import logo from "../images/god.png"
+
+const categoryTitels = {
+  GREEK_PHILOSOPHY: 'פילוסופיה יוונית',
+  GREEK_PHILOSOPHY2: 'פילוסופיה חדשה'
+}
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes 
+
+  const postsList = []
+  posts.forEach(post => {
+    if (!post.frontmatter.public) return
+    const category = post.frontmatter.category
+    const indexOfCategory = postsList.findIndex(e => e.category === category);
+    if (indexOfCategory > -1) {
+      postsList[indexOfCategory].posts.push(post)
+    } else {
+      postsList.push({
+        category,
+        posts: [post]
+      })
+    }
+  });
+
+  console.log(postsList)
 
   if (posts.length === 0) {
     return (
@@ -21,38 +44,46 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />   
-      <ol style={{ listStyle: `none` }} className="posts-list">
-        {posts.map(post => {
-          if (!post.frontmatter.public) {return}
-          const title = post.frontmatter.title || post.fields.slug
-
+      <div className="home-header">
+        <div className="home-header-logo">
+          <img src={logo}/>
+        </div>
+        <div className="home-header-title">
+          <span>מחברת פִילוֹסוֹפְיָה</span>
+        </div>
+        <div className="home-header-creds">
+          <span className="written-by">נכתב ע״י</span>
+          <span className="written-by-name">אלירן מלר נתן</span>
+        </div>
+      </div>
+      <div className="seperator">
+        ~
+      </div>
+      <div className="table-of-content">
+        {postsList.map(category => {
           return (
-            <li key={post.fields.slug} className="post">
-              <article
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description,
-                    }}
-                    itemProp="description"
-                    className="post-details2-desc"
-                  />
-                </section>
-              </article>
-            </li>
+            <div className="category">
+              <div className="category-title">
+                {categoryTitels[category.category]}
+              </div>
+              {
+                category.posts.map(post => {
+                  if (!post.frontmatter.public) {return}
+                  const title = post.frontmatter.title || post.fields.slug
+                  return (
+                    <div className="post-entry">
+                      <Link to={post.fields.slug}>
+                        <span>{title}</span>
+                      </Link>
+                    </div>
+                  )
+                })
+              }
+            </div>
           )
         })}
-      </ol>
+      </div>
+
     </Layout>
   )
 }
@@ -77,6 +108,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          category
         }
       }
     }

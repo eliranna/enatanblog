@@ -5,13 +5,14 @@ import { StaticImage } from "gatsby-plugin-image"
 import logo from "../images/god.png"
 
 const BLOG_LOGO = logo;
-const BLOG_NAME = "על טבעה של הדַּעַת";
+const BLOG_NAME = "נושאים בפילוסופיה";
 const BLOG_TOPIC = "נושאים בפילוסופיה";
 const BLOG_IS_WRITTEN_BY = "בלוג מאת";
 const BLOG_AUTHOR_NAME = "אלירן נתן";
 
 const isActive = false;
 const showSidebarOnInnerPages = false;
+const useTopBarOnInnerPages = true;
 
 const Layout = ({ location, title, children }) => {
 
@@ -30,14 +31,9 @@ const Layout = ({ location, title, children }) => {
         </Link>        
       </div>
       <div className="blog-about">
-        <div className="blog-title">
-          <span>
-            {BLOG_NAME}
-          </span>
-        </div>
         <div className="blog-topic">
           <span>
-            {BLOG_TOPIC}
+            
           </span>
         </div>
       </div>
@@ -68,27 +64,19 @@ const Layout = ({ location, title, children }) => {
             />
           </Link>        
         </div>
-        <div className="blog-details">
-          <div className="blog-name">
-            {BLOG_NAME}
-          </div>
-          <div className="blog-topic">
-            {BLOG_TOPIC}
-          </div>
-        </div>
       </div>
     </div>
   )
 
   const showSidebar = isRootPath || (!isRootPath && showSidebarOnInnerPages)
-  const showTopbar = !isRootPath
+  const showTopbar = !isRootPath && useTopBarOnInnerPages
 
   return isActive ? (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
       {showTopbar ? <header>{topbar}</header> : null}
-      {isRootPath ? <div className="spacer16"></div> : null}
+      {(!useTopBarOnInnerPages) ? <div className="spacer16"></div> : null}
       <div className="main">
-        {showSidebar ? <header>{sidebar}</header> : null}
+        {false ? <header>{sidebar}</header> : null}
         <main className="content">{children}</main>
       </div>
     </div>

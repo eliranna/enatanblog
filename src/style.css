@@ -1,5 +1,7 @@
 /* CSS Custom Properties Definitions */
 @import url('https://fonts.googleapis.com/css2?family=Alef&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Hebrew:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
   --maxWidth-none: "none";
@@ -29,10 +31,10 @@
   --spacing-24: 6rem;
   --spacing-32: 8rem;
 
-  --fontFamily-serif: 'Times New Roman', Times, serif;
+  --fontFamily-serif: 'Frank Ruhl Libre', 'Times New Roman', Times, serif;
   --fontFamily-sans: 'Alef', sans-serif;
 
-  --font-body: var(--fontFamily-sans);
+  --font-body: var(--fontFamily-serif);
 
   --fontWeight-normal: 400;
   --fontWeight-medium: 500;
@@ -40,7 +42,7 @@
   --fontWeight-bold: 700;
   --fontWeight-extrabold: 800;
   --fontWeight-black: 900;
-  --fontSize-root: 18px;
+  --fontSize-root: 22px;
   --lineHeight-none: 1;
   --lineHeight-tight: 1.1;
   --lineHeight-normal: 1.5;
@@ -57,7 +59,7 @@
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
 
-  --color-primary: #101010;
+  --color-primary: #402C13;
 }
 
 /* HTML elements */
@@ -75,12 +77,15 @@ html {
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: right;
+  height: 100%;
 }
 
 body {
   font-family: var(--font-body);
   font-size: var(--fontSize-1);
   color: var(--color-primary);
+  /*background: rgb(254,247,231);
+  background: radial-gradient(circle, rgba(254,247,231,1) 68%, rgba(246,222,189,1) 100%);*/
 }
 
 a {
@@ -113,6 +118,68 @@ ol, ul {
   max-width: var(--maxWidth-3xl);
   margin-left: auto;
   margin-right: auto;
+}
+
+/* home */ 
+
+.home-header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-header-logo {
+  margin-bottom: var(--spacing-4);
+}
+
+.home-header-logo img {
+  width: 60px;
+}
+
+.home-header-title span {
+  font-style: normal;
+  font-size: 35px;
+}
+
+.written-by {
+  font-size: var(--fontSize-small);
+  margin-left: 5px;
+}
+
+.written-by-name {
+  font-size: var(--fontSize-0);
+  margin-left: 5px;
+}
+
+.seperator {
+  font-size: 50px;
+  font-weight: 700;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  margin-top: var(--spacing-6);
+  margin-bottom: var(--spacing-12);
+}
+
+.table-of-content {
+  text-align: center;
+}
+
+.category {
+  margin-bottom: var(--spacing-16);
+}
+
+.category-title {
+  font-weight: 500;
+  margin-bottom: var(--spacing-6);
+}
+
+.post-entry {
+  margin-bottom: var(--spacing-2);
+}
+
+.post-entry a:hover span {
+  border-bottom: 3px solid var(--color-primary);
 }
 
 /* side-bar */
@@ -160,7 +227,7 @@ ol, ul {
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  max-width: var(--maxWidth-5xl);
+  max-width: var(--maxWidth-4xl);
   margin-left: auto;
   margin-right: auto;
   margin-bottom: var(--spacing-12);
@@ -199,7 +266,7 @@ ol, ul {
 }
 
 .top-bar .about-blog .logo img {
-  width: 45px;
+  width: 40px;
 }
 
 /* posts-list */ 
@@ -214,20 +281,24 @@ ol, ul {
 
 .posts-list .post {
   max-width: 500px;
+  text-align: justify;
+  
 }
 
 .posts-list .post h2 {
   margin-top: 0px;
   margin-bottom: var(--spacing-2);
   font-size: var(--fontSize-3);
+  font-style: normal;
+  text-align: center;
 }
 
 .posts-list .post h2 a span {
-  padding-bottom: 6px;
+  padding-bottom: 3px;
 }
 
 .posts-list .post h2 a:hover span {
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid var(--color-primary);
 }
 
 .posts-list .post p {
@@ -242,16 +313,63 @@ ol, ul {
   left: 0;
   margin-left: auto;
   margin-right: auto;
-  max-width: var(--maxWidth-xl);
+  max-width: var(--maxWidth-md);
+  line-height: 38px;
+}
+
+blockquote {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 350px;
+  right: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: var(--spacing-12);
+  margin-bottom: var(--spacing-12);
+}
+
+blockquote p {
+  font-style: italic;
+  text-align: justify;
+  align-self: center;
+}
+
+blockquote p:last-of-type {
+  text-align: left;
+  align-self: flex-end;
+  margin-top: var(--spacing-4);
 }
 
 .post-header h1 {
+  font-size: 45px;
   margin-top: 0px;
-  margin-bottom: var(--spacing-12);
+  margin-bottom: 0px;
+  font-family: 'Times New Roman';
+  font-weight: 500;
+  text-align: center;
+  font-style: italic;
+}
+
+.article-wrapper h3 {
+  font-size: 28px;
+  text-align: center;
+  margin-top: var(--spacing-12);
 }
 
 .post-body {
   font-size: var(--fontSize-1);
+  text-align: justify;
+  font-family: var(--fontFamily-serif);
+}
+
+.post-body p {
+  margin: 0px;
+}
+
+.post-body p:not(:first-child) {
+  text-indent: 35px;
 }
 
 /* others */
