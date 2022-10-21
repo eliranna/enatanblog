@@ -42,7 +42,7 @@
   --fontWeight-bold: 700;
   --fontWeight-extrabold: 800;
   --fontWeight-black: 900;
-  --fontSize-root: 22px;
+  --fontSize-root: 20px;
   --lineHeight-none: 1;
   --lineHeight-tight: 1.1;
   --lineHeight-normal: 1.5;
@@ -334,6 +334,7 @@ blockquote p {
   font-style: italic;
   text-align: justify;
   align-self: center;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 blockquote p:last-of-type {
@@ -346,16 +347,16 @@ blockquote p:last-of-type {
   font-size: 45px;
   margin-top: 0px;
   margin-bottom: 0px;
-  font-family: 'Times New Roman';
   font-weight: 500;
   text-align: center;
-  font-style: italic;
+  font-style: normal;
 }
 
 .article-wrapper h3 {
   font-size: 28px;
   text-align: center;
   margin-top: var(--spacing-12);
+  font-weight: 500;
 }
 
 .post-body {

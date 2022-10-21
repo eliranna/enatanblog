@@ -3,6 +3,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
+  const { createRedirect } = actions
 
   // Define a template for blog post
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
@@ -56,6 +57,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       })
     })
   }
+
+  createRedirect({
+    fromPath: `/`,
+    toPath: `/philosophy-notebook`,
+    exactPath: true,
+    isPermanent: false,
+    redirectInBrowser: true,
+  });
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

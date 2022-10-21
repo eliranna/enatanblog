@@ -28,12 +28,10 @@ const BlogIndex = ({ data, location }) => {
     }
   });
 
-  console.log(postsList)
-
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <Seo title="All posts" />
+        <Seo title="Philosophy Notebook | Eliran Natan" />
         <p>
           No blog posts found.
         </p>
@@ -43,7 +41,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="All posts" />   
+      <Seo title="Philosophy Notebook | Eliran Natan" />   
       <div className="home-header">
         <div className="home-header-logo">
           <img src={logo}/>

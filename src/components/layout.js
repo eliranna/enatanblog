@@ -10,13 +10,13 @@ const BLOG_TOPIC = "נושאים בפילוסופיה";
 const BLOG_IS_WRITTEN_BY = "בלוג מאת";
 const BLOG_AUTHOR_NAME = "אלירן נתן";
 
-const isActive = false;
+const isActive = true;
 const showSidebarOnInnerPages = false;
 const useTopBarOnInnerPages = true;
 
 const Layout = ({ location, title, children }) => {
 
-  const rootPath = `${__PATH_PREFIX__}/`
+  const rootPath = `${__PATH_PREFIX__}/philosophy-notebook`
   const isRootPath = location.pathname === rootPath
 
   let sidebar = (
