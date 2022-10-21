@@ -10,7 +10,7 @@ const BLOG_TOPIC = "נושאים בפילוסופיה";
 const BLOG_IS_WRITTEN_BY = "בלוג מאת";
 const BLOG_AUTHOR_NAME = "אלירן נתן";
 
-const isActive = true;
+const isActive = false;
 const showSidebarOnInnerPages = false;
 const useTopBarOnInnerPages = true;
 
