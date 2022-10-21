@@ -17,7 +17,8 @@ const useTopBarOnInnerPages = true;
 const Layout = ({ location, title, children }) => {
 
   const rootPath = `${__PATH_PREFIX__}/philosophy-notebook`
-  const isRootPath = location.pathname === rootPath
+  const rootPath2 = `${__PATH_PREFIX__}/philosophy-notebook/`
+  const isRootPath = (location.pathname === rootPath) || (location.pathname === rootPath2)
 
   let sidebar = (
     <div className="side-bar">
